@@ -2,21 +2,19 @@ package main
 
 import (
 	"net/http"
-	"/backend/routes/homeroute.go"
+	"github.com/ukane-philemon/RudigoNews/routes/homeroute"
 )
 
 func main() {
 
-	
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
-	 
+
 	http.HandleFunc("/", homeroute.Index)
 	http.HandleFunc("/home", homeroute.Index)
 	http.HandleFunc("/home/index", homeroute.Index)
-	
+
 	http.ListenAndServe(":3000", nil)
 }
-
 
 // /* var all = template.Must(template.ParseFiles(
 // 	"index1.html",
@@ -28,7 +26,6 @@ func main() {
 // 	"jobs.html",
 // 	"privacy.html",
 
-	
 // 	))
 
 // /* type data struct {
@@ -36,7 +33,6 @@ func main() {
 // }
 
 // var result string */
-
 
 // func indexHandler(w http.ResponseWriter, r *http.Request) {
 // 	all.ExecuteTemplate(w, "index1.html", nil)
@@ -60,7 +56,7 @@ func main() {
 
 // func disclaimerHandler(w http.ResponseWriter, r *http.Request) {
 // 	all.ExecuteTemplate(w, "disclaimer.html", nil)
-	
+
 // }
 
 // func aboutHandler(w http.ResponseWriter, r *http.Request) {
