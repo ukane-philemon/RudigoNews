@@ -1,5 +1,61 @@
-{{ template "header.html"}}
-<div>
-    News will be posted here
+{{ define "content"}}
+<div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+	
+<div class="row mb-4">
+						<div class="col-md-6 card">
+							<a href="single.html">
+								<img src="/static/images/7.jpg" class="card-img-top img-fluid" alt="">
+							</a>
+							<div class="card-body">
+								<ul class="blog-icons my-4">
+									<li>
+										<a href="#">
+											<i class="far fa-calendar-alt"></i> Feb 20 .2018</a>
+									</li>
+									<li class="mx-2">
+										<a href="#">
+											<i class="far fa-comment"></i> 21</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="fas fa-eye"></i> 2000</a>
+									</li>
+
+								</ul>
+								<h5 class="card-title ">
+									<a href="single.html">Blog Post Title</a>
+								</h5>
+								<p class="card-text mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt.. </p>
+								<a href="single.html" class="btn btn-primary read-m">Read More</a>
+							</div>
+						</div>
+						<div class="col-md-6 card">
+							<a href="single.html">
+								<img src="/static/images/6.jpg" class="card-img-top img-fluid" alt="">
+							</a>
+							<div class="card-body">
+								<ul class="blog-icons my-4">
+									<li>
+										<a href="#">
+											<i class="far fa-calendar-alt"></i> Feb 22 .2018</a>
+									</li>
+									<li class="mx-2">
+										<a href="#">
+											<i class="far fa-comment"></i> 21</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="fas fa-eye"></i> 2000</a>
+									</li>
+
+								</ul>
+								<h5 class="card-title ">
+									<a href="single.html">Blog Post Title</a>
+								</h5>
+								<p class="card-text mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt.. </p>
+								<a href="single.html" class="btn btn-primary read-m">Read More</a>
+							</div>
+						</div>
+			</div>
 </div>
-{{ template "footer.html"}}
+{{ end}}

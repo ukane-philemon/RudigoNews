@@ -1,0 +1,112 @@
+{{define "content"}}
+<div class="card card_border mb-5">
+          <div class="cards__heading">
+            <h3>Welcome Ukane Philemon</h3>
+            <p>we've assembled some links to get you started</p>
+          </div>
+          
+          <div class="card-body">
+            <div class="row row-cols-1 row-cols-md-2">
+              <div class="col mb-4">
+                <div class="card">
+                   <div class="card-body">
+                    <h5 class="card-title">Get Started</h5>
+                    <p class="card-text">
+                      <ul style="list-style-type: none; margin: 0px; padding: 0px;">
+                        <li><i class="fa fa-pencil-square-o" aria-hidden="true"> </i> <a href="/admin/new-post">Write blog post</a></li>
+                          <li><i class="fa fa-comment" aria-hidden="true"></i> <a href="/admin/comments">Check comments</a></li>
+                            <li><i class="fa fa-users" aria-hidden="true"></i> <a href="/admin/profile">Update profile</a></li>
+                              <li><i class="fa fa-eye" aria-hidden="true"></i> <a href="/">View your blog</a></li>
+                      </ul>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col mb-4">
+                <div class="card">
+                   <div class="card-body">
+                    <h5 class="card-title">More Actions...</h5>
+                    <p class="card-text">
+                      <ul style="list-style-type: none;  margin: 0px; padding: 0px;">
+                        <li> <i class="fa fa-trash" aria-hidden="true"></i> <a href="/admin/delete">Delete Post</a></li>
+                          <li><i class="fa fa-thumbs-up" aria-hidden="true"></i> <a href="/admin/approve">Approve comments</a></li>
+                            <li><i class="fa fa-wrench"></i> <a href="/admin/update-post">Update post</a></li>
+                              <li><i class="fa fa-eye"></i> <a href="/amdmin/all-post">View all posts</a></li>
+                      </ul>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              </div>
+            </div>
+          </div>
+       <div class="card-body">
+            <div class="row row-cols-1 row-cols-md-2">
+            <div class="col mb-4">
+                <div class="card">
+                   <div class="card-body">
+                    <h5 class="card-title">Activity</h5>
+                    <p class="card-text">
+                      <div>
+                        <h6>Recently Published posts</h6>
+                        <ul style="list-style-type: none; margin: 0px; padding: 0px;">
+                          {{range $k, $post := .Articles }}
+                          <li><span>{{$post.Date.Format "Jan 02, 2006 15:04"}}</span><a href=""> {{$post.Title}}</a></li>
+                           {{end}}
+                        </ul>
+                      </div>
+                      <div>
+                        <h6>Recently Published comments</h6>
+                        <ul style="list-style-type: none;  margin: 0px; padding: 0px;">
+                          <li><span>{date}</span> Comment From {name} on <a href="">Post name</a></li>
+                           <li><span>{date}</span> Comment From {name} on <a href="">Post name</a></li>
+                           <li><span>{date}</span> Comment From {name} on <a href="">Post name</a></li>
+                           <li><span>{date}</span> Comment From {name} on <a href="">Post name</a></li>
+                        </ul>
+                      </div>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col mb-4">
+                <div class="card">
+                   <div class="card-body">
+                    <h5 class="card-title">Events and Schedule</h5>
+                    <p class="card-text">
+                      <ul style="list-style-type: none;  margin: 0px; padding: 0px;">
+                        <li><a href="">Event 1</a></li>
+                          <li><a href="">Event 2</a></li>
+                            <li><a href="">Event 3</a></li>
+                              <li><a href="">Event 4</a></li>
+                               <li><a href="">Event 3</a></li>
+                    </ul>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col mb-4">
+                <div class="card">
+                   <div class="card-body">
+                    <h5 class="card-title">At a Glance</h5>
+                    <p class="card-text">
+                      <ul style="list-style-type: none;  margin: 0px; padding: 0px;">
+                        <li><i class="fa fa-pencil-square-o"></i> <a href="">{Num} Posts</a></li>
+                          <li><i class="fa fa-comment-o"></i> <a href="">{num} Comments</a></li>
+                            <li><i class="fa fa-file-o"></i> <a href="">{num} Pages</a></li>
+                              
+                      </ul>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+                 <div class="card-body">
+            <div class="row row-cols-1 row-cols-md-2">
+              
+             
+              </div>
+            </div>        
+
+{{end}}

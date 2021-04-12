@@ -1,0 +1,45 @@
+{{define "content"}}
+<div class="card card_border mb-5">
+          <div class="cards__heading">
+            <h3>All Posts</h3>
+          </div>
+          <div class="card-body">
+            <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">
+        
+      </th>
+      <th scope="col-2">Comment</th>
+      <th scope="col">Author</th>
+      <th scope="col">Postname</th>
+        <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{range $k, $post := .Articles}}
+     	<tr>
+      <th scope="row">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckDefault"
+          />
+        </div>
+      </th>
+     <td>{{$post.Title}}<br>
+       <small>{{$post.Category}}</small>
+     </td>
+      <td>{{$post.Author}}</td>
+      <td>{10}</td>
+      <td>{{$post.Date.Format "Jan 02, 2006 15:04"}}</td>
+    </tr>
+    {{end}}
+    
+  </tbody>
+</table>
+          </div>
+        </div>
+  {{end}}
