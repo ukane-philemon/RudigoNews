@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en_US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{.Title}} - RudigoNews</title>
+    <meta name="description" content="{{.PageDescription}}">
+    <meta http-equiv="Content-Type" content="text/html">
+    <meta name="author" content="RudigoNews">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="google-site-verification" content="" />
+    <link rel="canonical" itemprop="url" href="https://www.rudigonews.com/{{.Slug}}">
+    <meta name="keywords" itemprop="keywords" content="{{.Tags}}">
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+    <link href="/static/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/contact.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/fontawesome-all.css" rel="stylesheet">
+    <link
+        href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+        rel="stylesheet">
+    <link rel="icon" href="/static/images/rudigonewsicon.ico/" type="image/x-icon">
+    <link rel="alternate" hreflang="en" href="https://www.rudigonews.com/{{.Slug}}">
+
+    <meta property="article:section" itemprop="articleSection" content="{{.Category}}">
+    <meta property="article:section_url" content="https://www.rudigonews.com/{{.Slug}}">
+    <meta property="article:published" itemprop="datePublished" content="{{.DatePublished}}">
+    <meta property="article:modified" itemprop="dateModified" content="{{.DateModified}}">
+    <meta property="article:publisher" content="https://www.facebook.com/RudigoNews/">
+    <meta property="article:author" content="{{.Author}}">
+    <meta property="og:title" content="{{.Title}}">
+    <meta property="og:site_name" content="RudigoNews">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.rudigonews.com/{{.Slug}}">
+    <meta property="og:description" content="{{.PageDescription}}">
+    <meta property="og:updated_time" content="{{.DatePublished}}">
+
+    <meta name="twitter:site" content="@rudigonews">
+    <meta name="twitter:title" content="{{.Title}}">
+    <meta name="twitter:description" content="{{.PageDescription}}">
+    <meta name="twitter:creator" content="@rudigonews">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="{{.Author}}">
+
+
+
+    <!-- <link rel='dns-prefetch' href='//www.google-analytics.com' />
+<link rel='dns-prefetch' href='//www.googletagmanager.com' /> -->
+    <link rel='dns-prefetch'
+        href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800" />
+
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+
+</head>
+
+<body>
+    <!--Header-->
+
+    <header>
+        <div class="top-bar_sub_w3layouts container-fluid">
+            <div class="row">
+                <div class="col-md-4 logo text-left">
+                    <a class="navbar-brand" href="/">
+                        <i class="fab fa-linode"></i> Rudigo:)News</a>
+                </div>
+                <div class="col-md-4 top-forms text-center mt-lg-3 mt-md-1 mt-0">
+
+
+                </div>
+                <div class="col-md-4 log-icons text-right">
+
+                    <ul class="social_list1 mt-3">
+
+                        <li>
+                            <a href="#" class="facebook1 mx-2">
+                                <i class="fab fa-facebook-f"></i>
+
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="twitter2">
+                                <i class="fab fa-twitter"></i>
+
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="dribble3 mx-2">
+                                <i class="fab fa-dribbble"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="pin">
+                                <i class="fab fa-pinterest-p"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="header_top" id="home">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <button class="navbar-toggler navbar-toggler-right mx-auto" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/category/news">News</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/category/technology">Technology</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/category/business">Business</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/category/jobs">Jobs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about-us">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/privacy-policy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/disclaimer">Disclaimer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contact">Contact</a>
+                        </li>
+
+                    </ul>
+                    <form action="#" method="post" class="form-inline my-2 my-lg-0 header-search">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search here..." name="Search"
+                            required="">
+                        <button class="btn btn1 my-2 my-sm-0" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+
+
+
+                </div>
+            </nav>
+
+        </div>
+    </header>
+    <!--//header-->
+    <section class="main-content-w3layouts-agileits">
+        <div class="container">
+            <div class="row inner-sec">
+                <!--left-->
+
+                <div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+                    
+                    <div>
+                        <h1 class="post-title">
+                            {{.Title}}
+                        </h1>
+                        <br>
+                        <div class="post-date">By <span><i class="far fa-user"></i> {{.Author}}</span> | <span><i
+                                    class="far fa-calendar-alt"></i> {{.DatePublished.Format "Jan 02, 2006"}}</span> |
+                            <span><i class="far fa-clock"></i> {{.ReadTime}}</span>
+                        </div>
+                        <br>
+                    </div>
+
+                   
+                    <br>
+                    <!-- </div> -->
+                    <div>
+                        {{.RawContent}}
+                    </div>
+
+
+                    <div class="comment-top">
+                        <h4 classs="margin">Leave a Comment</h4>
+                        <div class="comment-bottom">
+                            <form action="#" method="post">
+                                <input class="form-control margin" type="text" name="Name" placeholder="Name"
+                                    required="">
+                                <input class="form-control margin" type="email" name="Email" placeholder="Email"
+                                    required="">
+
+                                <input class="form-control margin" type="text" name="Subject" placeholder="Subject"
+                                    required="">
+
+                                <textarea class="form-control margin" name="Message" placeholder="Message..."
+                                    required=""></textarea>
+                                <button type="submit" class="btn btn-primary submit margin">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row mb-4" style="margin-top: 20px;">
+
+                        <div class="col-md-6 card">
+                            <a href="single.html">
+                                <img src="/static/images/4.jpg" class="card-img-top img-fluid" alt="">
+                            </a>
+                            <div class="card-body">
+                                <ul class="blog-icons my-4">
+                                    <li>
+                                        <a href="#">
+                                            <i class="far fa-calendar-alt"></i> Mar 25 .2018</a>
+                                    </li>
+                                    <li class="mx-2">
+                                        <a href="#">
+                                            <i class="far fa-comment"></i> 21</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fas fa-eye"></i> 2000</a>
+                                    </li>
+
+                                </ul>
+                                <h5 class="card-title ">
+                                    <a href="single.html">Blog Post Title</a>
+                                </h5>
+                                <p class="card-text mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc
+                                    dnmo eiusmod
+                                    tempor incididunt.. </p>
+                                <a href="single.html" class="btn btn-primary read-m">Read More</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 card">
+                            <a href="single.html">
+                                <img src="/static/images/3.jpg" class="card-img-top img-fluid" alt="">
+                            </a>
+                            <div class="card-body">
+                                <ul class="blog-icons my-4">
+                                    <li>
+                                        <a href="#">
+                                            <i class="far fa-calendar-alt"></i> Feb 30 .2018</a>
+                                    </li>
+                                    <li class="mx-2">
+                                        <a href="#">
+                                            <i class="far fa-comment"></i> 21</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fas fa-eye"></i> 2000</a>
+                                    </li>
+
+                                </ul>
+                                <h5 class="card-title ">
+                                    <a href="single.html">Blog Post Title</a>
+                                </h5>
+                                <p class="card-text mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit sedc
+                                    dnmo eiusmod
+                                    tempor incididunt.. </p>
+                                <a href="single.html" class="btn btn-primary read-m">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--//left-->
+                <!--right-->
+                <aside class="col-lg-4 agileits-w3ls-right-blog-con text-left">
+                    <div class="right-blog-info text-left">
+                        <div class="tech-btm">
+                            <img src="/static/images/banner1.jpg" class="card-img-top img-fluid" alt="">
+                        </div>
+                        <div class="tech-btm">
+                            <h4>Sign up to our newsletter</h4>
+                            <p>Enter your email address to subscribe to this blog
+                                and receive notifications of new posts by email.</p>
+                            <form action="#" method="post">
+                                <input type="email" placeholder="Email" required="">
+                                <input type="submit" value="Subscribe">
+                            </form>
+
+                        </div>
+                        <div class="tech-btm">
+                            <h4>Categories</h4>
+                            <ul class="list-group single">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    News
+                                    <span class="badge badge-primary badge-pill">14</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Jobs
+                                    <span class="badge badge-primary badge-pill">2</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Education
+                                    <span class="badge badge-primary badge-pill">1</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Scholarships
+                                    <span class="badge badge-primary badge-pill">5</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tech-btm">
+                            <h4>Top stories of the week</h4>
+
+                            <div class="blog-grids row mb-3">
+                                <div class="col-md-5 blog-grid-left">
+                                    <a href="single.html">
+                                        <img src="/static/images/1.jpg" class="card-img-top img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-7 blog-grid-right">
+
+                                    <h4>
+                                        <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+                                    </h4>
+                                    <div class="sub-meta">
+                                        <span>
+                                            <i class="far fa-clock"></i> 20 Jan, 2018</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="blog-grids row mb-3">
+                                <div class="col-md-5 blog-grid-left">
+                                    <a href="single.html">
+                                        <img src="/static/images/6.jpg" class="card-img-top img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-7 blog-grid-right">
+                                    <h4>
+                                        <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+                                    </h4>
+                                    <div class="sub-meta">
+                                        <span>
+                                            <i class="far fa-clock"></i> 20 Feb, 2018</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="blog-grids row mb-3">
+                                <div class="col-md-5 blog-grid-left">
+                                    <a href="single.html">
+                                        <img src="/static/images/6.jpg" class="card-img-top img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-7 blog-grid-right">
+                                    <h4>
+                                        <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+                                    </h4>
+                                    <div class="sub-meta">
+                                        <span>
+                                            <i class="far fa-clock"></i> 20 Feb, 2018</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="tech-btm widget_social text-left">
+                            <h4>Stay Connect</h4>
+                            <ul>
+
+                                <li>
+                                    <a class="twitter" href="#">
+                                        <i class="fab fa-twitter"></i>
+                                        <span class="count">317K</span> Twitter Followers</a>
+                                </li>
+                                <li>
+                                    <a class="facebook" href="#">
+                                        <i class="fab fa-facebook-f"></i>
+                                        <span class="count">218k</span> Twitter Followers</a>
+                                </li>
+                                <li>
+                                    <a class="dribble" href="#">
+                                        <i class="fab fa-dribbble"></i>
+
+                                        <span class="count">215k</span> Dribble Followers</a>
+                                </li>
+                                <li>
+                                    <a class="pin" href="#">
+                                        <i class="fab fa-pinterest"></i>
+                                        <span class="count">190k</span> Pinterest Followers</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="tech-btm">
+                            <h4>Recent Posts</h4>
+
+                            <div class="blog-grids row mb-3 text-left">
+                                <div class="col-md-5 blog-grid-left">
+                                    <a href="single.html">
+                                        <img src="/static/images/1.jpg" class="card-img-top img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-7 blog-grid-right">
+
+                                    <h4>
+                                        <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+                                    </h4>
+                                    <div class="sub-meta">
+                                        <span>
+                                            <i class="far fa-clock"></i> 20 Jan, 2018</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="blog-grids row mb-3 text-left">
+                                <div class="col-md-5 blog-grid-left">
+                                    <a href="single.html">
+                                        <img src="/static/images/5.jpg" class="card-img-top img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-7 blog-grid-right">
+
+                                    <h4>
+                                        <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+                                    </h4>
+                                    <div class="sub-meta">
+                                        <span>
+                                            <i class="far fa-clock"></i> 20 Jan, 2018</span>
+                                    </div>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="blog-grids row mb-3 text-left">
+                                <div class="col-md-5 blog-grid-left">
+                                    <a href="single.html">
+                                        <img src="/static/images/3.jpg" class="card-img-top img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-7 blog-grid-right">
+                                    <h4>
+                                        <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+                                    </h4>
+                                    <div class="sub-meta">
+                                        <span>
+                                            <i class="far fa-clock"></i> 20 Feb, 2018</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="blog-grids row mb-3 text-left">
+                                <div class="col-md-5 blog-grid-left">
+                                    <a href="single.html">
+                                        <img src="/static/images/3.jpg" class="card-img-top img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-7 blog-grid-right">
+                                    <h4>
+                                        <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+                                    </h4>
+                                    <div class="sub-meta">
+                                        <span>
+                                            <i class="far fa-clock"></i> 20 Feb, 2018</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="blog-grids row mb-3 text-left">
+                                <div class="col-md-5 blog-grid-left">
+                                    <a href="single.html">
+                                        <img src="/static/images/3.jpg" class="card-img-top img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-7 blog-grid-right">
+                                    <h4>
+                                        <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+                                    </h4>
+                                    <div class="sub-meta">
+                                        <span>
+                                            <i class="far fa-clock"></i> 20 Feb, 2018</span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </aside>
+                <!--//right-->
+
+
+
+
+            </div>
+
+
+        </div>
+        </div>
+    </section>
+    <!--//main-->
+
+    <!--footer-->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 footer-grid-agileits-w3ls text-left">
+                    <h3>About US</h3>
+                    <p class="p-footer"> Rudigo News is one of the leading information providers in Nigeria; we deliver
+                        latest and
+                        essential information that can be of..</p>
+                    <div class="read">
+                        <a href="single.html" class="btn btn-primary read-m">Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 footer-grid-agileits-w3ls text-left">
+
+                    <div class="tech-btm">
+                        <h3>Latest Posts</h3>
+                        <div class="blog-grids row mb-3">
+                            <div class="col-md-5 blog-grid-left">
+                                <a href="single.html">
+                                    <img src="/static/images/4.jpg" class="card-img-top img-fluid" alt="">
+                                </a>
+                            </div>
+                            <div class="col-md-7 blog-grid-right">
+
+                                <h4>
+                                    <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+                                </h4>
+                                <div class="sub-meta">
+                                    <span>
+                                        <i class="far fa-clock"></i> 20 Jan, 2018</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="blog-grids row mb-3">
+                            <div class="col-md-5 blog-grid-left">
+                                <a href="single.html">
+                                    <img src="/static/images/5.jpg" class="card-img-top img-fluid" alt="">
+                                </a>
+                            </div>
+                            <div class="col-md-7 blog-grid-right">
+
+                                <h4>
+                                    <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+                                </h4>
+                                <div class="sub-meta">
+                                    <span>
+                                        <i class="far fa-clock"></i> 20 Jan, 2018</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- subscribe -->
+                <div class="col-lg-4 subscribe-main footer-grid-agileits-w3ls text-left">
+                    <h2>Signup to our newsletter</h2>
+                    <div class="subscribe-main text-left">
+                        <div class="subscribe-form">
+                            <form action="#" method="post" class="subscribe_form">
+                                <input class="form-control" type="email" placeholder="Enter your email..." required="">
+                                <button type="submit" class="btn btn-primary submit">Submit</button>
+                            </form>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <p class="p-footer">We respect your privacy.No spam ever!</p>
+                    </div>
+                    <!-- //subscribe -->
+                </div>
+            </div>
+            <!-- footer -->
+            <div class="footer-cpy text-center">
+                <div class="footer-social">
+                    <div class="copyrighttop">
+                        <ul>
+                            <li class="mx-3">
+                                <a class="facebook" href="#">
+                                    <i class="fab fa-facebook-f"></i>
+                                    <span>Facebook</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="facebook" href="#">
+                                    <i class="fab fa-twitter"></i>
+                                    <span>Twitter</span>
+                                </a>
+                            </li>
+                            <li class="mx-3">
+                                <a class="facebook" href="#">
+                                    <i class="fab fa-google-plus-g"></i>
+                                    <span>Google+</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="facebook" href="#">
+                                    <i class="fab fa-pinterest-p"></i>
+                                    <span>Pinterest</span>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="w3layouts-agile-copyrightbottom" style="text-align: center;">
+                    <p class="p-footer">© 2021 RudigoNews. All Rights Reserved | Built with &#10084
+                        <a href="https://github.com/ukane-philemon">By ukane-philemon |</a>
+                        <a href="/login"><i class="fas fa-lock"></i> Admin</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- //footer -->
+
+        </div>
+    </footer>
+    <!---->
+
+    <!-- js -->
+    <script src="/static/js/jquery-2.2.3.min.js"></script>
+    <!-- //js -->
+    <!--/ start-smoth-scrolling -->
+    <script src="/static/js/move-top.js"></script>
+    <script src="/static/js/easing.js"></script>
+    <script src="/static/js/custom.js"></script>
+
+    <a href="#home" class="scroll" id="toTop" style="display: block;">
+        <span id="toTopHover" style="opacity: 1;"> </span>
+    </a>
+
+    <!-- //Custom-JavaScript-File-Links -->
+    <script src="/static/js/bootstrap.js"></script>
+    <script src="/static/js/tableofcontent.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+{{ define "content"}}
+<div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+
+    <div class="row mb-4">
+        {{range $k, $post := .}}
+        <div class="col-md-6 card">
+            <a href="/{{$post.Category}}/{{$post.Slug}}/{{$post.ID.Hex}}">
+                <img src="/upload/{{$post.FeaturedImage}}" class="card-img-top img-fluid" alt="{{$post.FeaturedImage}}">
+            </a>
+            <div class="card-body">
+                <ul class="blog-icons my-4">
+
+                    <li>
+                        <a href="/category/{{$post.Category}}"> {{$post.Category}}</a>
+                    </li>
+
+                </ul>
+                <h5 class="card-title">
+                    <a href="/{{$post.Category}}/{{$post.Slug}}/{{$post.ID.Hex}}">{{$post.Title}}</a>
+                </h5>
+                <a href="/{{$post.Category}}/{{$post.Slug}}/{{$post.ID.Hex}}" class="btn btn-primary read-m">Read
+                    Now</a>
+            </div>
+        </div>
+        {{end}}
+    </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-left mt-4">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+{{ end }}

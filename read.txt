@@ -1,0 +1,11 @@
+DBS : adminDB {
+    Collection: User
+},
+    pageDB {
+        Collection: pages
+    },
+    PostDB {
+        Collection: posts
+    }
+
+Blog perist data {pages, posts, user data} from local mongodb.
