@@ -59,19 +59,19 @@ func PostPageHandler(response http.ResponseWriter, request *http.Request) {
 		if perr != nil {
 
 			tmp, _ := template.New(" ").Funcs(funcMap).ParseFiles(
-				"view/404.html",
-				"view/template/footer.html",
-				"view/template/header.html",
-				"view/template/sidebar.html")
+				"view/404.gohtml",
+				"view/template/footer.gohtml",
+				"view/template/header.gohtml",
+				"view/template/sidebar.gohtml")
 			tmp.ExecuteTemplate(response, "layout", detail)
 			return
 
 		}
 		tmp, err := template.New(" ").Funcs(funcMap).ParseFiles(
-			"view/post.html",
-			"view/template/footer.html",
-			"view/template/header.html",
-			"view/template/sidebar.html",
+			"view/post.gohtml",
+			"view/template/footer.gohtml",
+			"view/template/header.gohtml",
+			"view/template/sidebar.gohtml",
 		)
 
 		if err != nil {

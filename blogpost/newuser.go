@@ -18,9 +18,9 @@ func Newuser(response http.ResponseWriter, request *http.Request) {
 	case "GET":
 
 		tmp, _ := template.ParseFiles(
-			"view/newuser.html",
+			"view/newuser.gohtml",
 		)
-		tmp.ExecuteTemplate(response, "newuser.html", nil)
+		tmp.ExecuteTemplate(response, "newuser.gohtml", nil)
 		return
 
 	case "POST":
@@ -76,14 +76,14 @@ func Newuser(response http.ResponseWriter, request *http.Request) {
 
 			usernametaken := "Username is not available, try something else :)"
 			tmp, err := template.ParseFiles(
-				"view/newuser.html",
+				"view/newuser.gohtml",
 			)
 			if err != nil {
 				log.Print(err)
 				http.Error(response, "internal server error", http.StatusInternalServerError)
 				return
 			}
-			tmp.ExecuteTemplate(response, "newuser.html", usernametaken)
+			tmp.ExecuteTemplate(response, "newuser.gohtml", usernametaken)
 			return
 
 		}

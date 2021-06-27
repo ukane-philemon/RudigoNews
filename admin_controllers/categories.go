@@ -52,11 +52,11 @@ func Category(response http.ResponseWriter, request *http.Request) {
 			}
 
 			tmp, err := template.ParseFiles(
-				"admin/template/template.html",
-				"admin/template/sidebar.html",
-				"admin/template/header.html",
-				"admin/template/footer.html",
-				"admin/category.html",
+				"admin/template/template.gohtml",
+				"admin/template/sidebar.gohtml",
+				"admin/template/header.gohtml",
+				"admin/template/footer.gohtml",
+				"admin/category.gohtml",
 			)
 			
 			if err != nil {

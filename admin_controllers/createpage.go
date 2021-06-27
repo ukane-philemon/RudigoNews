@@ -38,11 +38,11 @@ func Createpage(response http.ResponseWriter, request *http.Request) {
 
 		if user.LoginState {
 			tmp, err := template.ParseFiles(
-				"admin/template/editortemplate.html",
-				"admin/template/sidebar.html",
-				"admin/template/header.html",
-				"admin/template/editorfooter.html",
-				"admin/createpage.html",
+				"admin/template/editortemplate.gohtml",
+				"admin/template/sidebar.gohtml",
+				"admin/template/header.gohtml",
+				"admin/template/editorfooter.gohtml",
+				"admin/createpage.gohtml",
 			)
 
 			if err != nil {

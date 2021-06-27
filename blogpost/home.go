@@ -52,11 +52,11 @@ func Home(response http.ResponseWriter, request *http.Request) {
 			Pages: Pages,
 		}
 			tmp, err := template.New(" ").Funcs(funcMap).ParseFiles(
-				"view/template/template.html",
-				"view/template/footer.html",
-				"view/template/sidebar.html",
-				"view/template/header.html",
-				"view/index.html",
+				"view/template/template.gohtml",
+				"view/template/footer.gohtml",
+				"view/template/sidebar.gohtml",
+				"view/template/header.gohtml",
+				"view/index.gohtml",
 			)
 
 			if err != nil {

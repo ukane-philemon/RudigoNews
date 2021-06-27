@@ -41,11 +41,11 @@ func AdminSearch(response http.ResponseWriter, request *http.Request) {
 			}
 
 			tmp, err := template.ParseFiles(
-				"admin/template/template.html",
-				"admin/template/sidebar.html",
-				"admin/template/header.html",
-				"admin/template/footer.html",
-				"admin/search.html",
+				"admin/template/template.gohtml",
+				"admin/template/sidebar.gohtml",
+				"admin/template/header.gohtml",
+				"admin/template/footer.gohtml",
+				"admin/search.gohtml",
 			)
 
 		if err != nil {

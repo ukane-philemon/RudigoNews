@@ -36,7 +36,7 @@ func Update(response http.ResponseWriter, request *http.Request) {
 				post, err := model.GetPost(postslug)
 				categories := model.GetCategories()
 				if err != nil {
-					tmp, _ := template.ParseFiles("view/404.html")
+					tmp, _ := template.ParseFiles("view/404.gohtml")
 					tmp.Execute(response, nil)
 					return
 				}
@@ -53,11 +53,11 @@ func Update(response http.ResponseWriter, request *http.Request) {
 				}
 
 				tmp, err := template.ParseFiles(
-					"admin/template/editortemplate.html",
-					"admin/template/sidebar.html",
-					"admin/template/header.html",
-					"admin/template/editorfooter.html",
-					"admin/updatepost.html",
+					"admin/template/editortemplate.gohtml",
+					"admin/template/sidebar.gohtml",
+					"admin/template/header.gohtml",
+					"admin/template/editorfooter.gohtml",
+					"admin/updatepost.gohtml",
 				)
 
 				if err != nil {
@@ -72,7 +72,7 @@ func Update(response http.ResponseWriter, request *http.Request) {
 			case "categoryedit":
 				category, err := model.GetCategoryBySlug(postslug)
 				if err != nil {
-					tmp, _ := template.ParseFiles("view/404.html")
+					tmp, _ := template.ParseFiles("view/404.gohtml")
 					tmp.Execute(response, nil)
 					return
 				}
@@ -87,11 +87,11 @@ func Update(response http.ResponseWriter, request *http.Request) {
 				}
 
 				tmp, _ := template.ParseFiles(
-					"admin/template/editortemplate.html",
-					"admin/template/sidebar.html",
-					"admin/template/header.html",
-					"admin/template/editorfooter.html",
-					"admin/updatecategory.html",
+					"admin/template/editortemplate.gohtml",
+					"admin/template/sidebar.gohtml",
+					"admin/template/header.gohtml",
+					"admin/template/editorfooter.gohtml",
+					"admin/updatecategory.gohtml",
 				)
 				tmp.ExecuteTemplate(response, "layout", details)
 				return
@@ -100,7 +100,7 @@ func Update(response http.ResponseWriter, request *http.Request) {
 				page, err := model.GetPage(postslug)
 
 				if err != nil {
-					tmp, _ := template.ParseFiles("view/404.html")
+					tmp, _ := template.ParseFiles("view/404.gohtml")
 					tmp.Execute(response, nil)
 					return
 				}
@@ -116,11 +116,11 @@ func Update(response http.ResponseWriter, request *http.Request) {
 				}
 
 				tmp, err := template.ParseFiles(
-					"admin/template/editortemplate.html",
-					"admin/template/sidebar.html",
-					"admin/template/header.html",
-					"admin/template/editorfooter.html",
-					"admin/updatepage.html",
+					"admin/template/editortemplate.gohtml",
+					"admin/template/sidebar.gohtml",
+					"admin/template/header.gohtml",
+					"admin/template/editorfooter.gohtml",
+					"admin/updatepage.gohtml",
 				)
 
 				if err != nil {

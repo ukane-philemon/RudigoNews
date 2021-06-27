@@ -62,11 +62,11 @@ func Search(response http.ResponseWriter, request *http.Request) {
 		}
 
 		tmp, err := template.New(" ").Funcs(funcMap).ParseFiles(
-			"view/template/template.html",
-			"view/template/footer.html",
-			"view/template/sidebar.html",
-			"view/template/header.html",
-			"view/search.html",
+			"view/template/template.gohtml",
+			"view/template/footer.gohtml",
+			"view/template/sidebar.gohtml",
+			"view/template/header.gohtml",
+			"view/search.gohtml",
 		)
 		if err != nil {
 			log.Print(err)

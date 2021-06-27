@@ -58,10 +58,10 @@ func PageHandler(response http.ResponseWriter, request *http.Request) {
 
 		if pageerr != nil {
 			tmp, err := template.New(" ").Funcs(funcMap).ParseFiles(
-				"view/404.html",
-				"view/template/footer.html",
-				"view/template/header.html",
-				"view/template/sidebar.html",
+				"view/404.gohtml",
+				"view/template/footer.gohtml",
+				"view/template/header.gohtml",
+				"view/template/sidebar.gohtml",
 			)
 			if err != nil {
 				log.Print(err)
@@ -73,10 +73,10 @@ func PageHandler(response http.ResponseWriter, request *http.Request) {
 		}
 
 		tmp, err := template.New(" ").Funcs(funcMap).ParseFiles(
-			"view/template/pagetemplate.html",
-			"view/template/footer.html",
-			"view/template/header.html",
-			"view/template/sidebar.html",
+			"view/template/pagetemplate.gohtml",
+			"view/template/footer.gohtml",
+			"view/template/header.gohtml",
+			"view/template/sidebar.gohtml",
 		)
 
 		if err != nil {

@@ -74,14 +74,14 @@ func Login(response http.ResponseWriter, request *http.Request) {
 			return
 		} else if err != nil || !user.LoginState {
 			tmp, err := template.ParseFiles(
-				"view/login.html",
+				"view/login.gohtml",
 			)
 			if err != nil {
 				log.Print(err)
 				http.Error(response, "internal server error", http.StatusInternalServerError)
 				return
 			}
-			tmp.ExecuteTemplate(response, "login.html", nil)
+			tmp.ExecuteTemplate(response, "login.gohtml", nil)
 			return
 		}
 
@@ -107,9 +107,9 @@ func Login(response http.ResponseWriter, request *http.Request) {
 
 				error := "Username or Password is Incorrect, Try again."
 				tmp, _ := template.ParseFiles(
-					"view/login.html",
+					"view/login.gohtml",
 				)
-				tmp.ExecuteTemplate(response, "login.html", error)
+				tmp.ExecuteTemplate(response, "login.gohtml", error)
 				return
 			} else {
 				//set login state

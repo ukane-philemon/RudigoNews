@@ -40,7 +40,7 @@ func Subscribe(response http.ResponseWriter, request *http.Request) {
 
 			if _, err := list.CreateMember(req); err != nil {
 				tmp, err := template.ParseFiles(
-					"view/suberror.html",
+					"view/suberror.gohtml",
 				)
 
 				if err != nil {
@@ -53,7 +53,7 @@ func Subscribe(response http.ResponseWriter, request *http.Request) {
 
 			} else {
 				tmp, err := template.ParseFiles(
-					"view/subsuccess.html",
+					"view/subsuccess.gohtml",
 				)
 				if err != nil {
 					log.Print(err)

@@ -72,10 +72,10 @@ func CategoryHandler(response http.ResponseWriter, request *http.Request) {
 
 		if categoryerr != nil {
 			tmp, err := template.New(" ").Funcs(funcMap).ParseFiles(
-				"view/404.html",
-				"view/template/footer.html",
-				"view/template/header.html",
-				"view/template/sidebar.html",
+				"view/404.gohtml",
+				"view/template/footer.gohtml",
+				"view/template/header.gohtml",
+				"view/template/sidebar.gohtml",
 			)
 
 			if err != nil {
@@ -87,10 +87,10 @@ func CategoryHandler(response http.ResponseWriter, request *http.Request) {
 			return
 		}
 		tmp, err := template.New(" ").Funcs(funcMap).ParseFiles(
-			"view/template/categorytemplate.html",
-			"view/template/footer.html",
-			"view/template/sidebar.html",
-			"view/template/header.html",
+			"view/template/categorytemplate.gohtml",
+			"view/template/footer.gohtml",
+			"view/template/sidebar.gohtml",
+			"view/template/header.gohtml",
 		)
 		if err != nil {
 			//handle err

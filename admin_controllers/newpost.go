@@ -49,11 +49,11 @@ func Newpost(response http.ResponseWriter, request *http.Request) {
 			}
 
 			tmp, err := template.ParseFiles(
-				"admin/template/editortemplate.html",
-				"admin/template/sidebar.html",
-				"admin/template/header.html",
-				"admin/template/editorfooter.html",
-				"admin/newpost.html",
+				"admin/template/editortemplate.gohtml",
+				"admin/template/sidebar.gohtml",
+				"admin/template/header.gohtml",
+				"admin/template/editorfooter.gohtml",
+				"admin/newpost.gohtml",
 			)
 
 			if err != nil {

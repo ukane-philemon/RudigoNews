@@ -16,10 +16,10 @@ func PasswordReset(response http.ResponseWriter, request *http.Request) {
 	case "GET":
 
 		tmp, _ := template.ParseFiles(
-			"view/passwordreset.html",
+			"view/passwordreset.gohtml",
 		)
 
-		tmp.ExecuteTemplate(response, "passwordreset.html", nil)
+		tmp.ExecuteTemplate(response, "passwordreset.gohtml", nil)
 
 	case "POST":
 
@@ -40,14 +40,14 @@ func PasswordReset(response http.ResponseWriter, request *http.Request) {
 
 			errtext := "Username not found, Try again."
 			tmp, err := template.ParseFiles(
-				"view/passwordreset.html",
+				"view/passwordreset.gohtml",
 			)
 			if err != nil {
 				log.Print(err)
 				http.Error(response, "internal server error", http.StatusInternalServerError)
 				return
 			}
-			tmp.ExecuteTemplate(response, "passwordreset.html", errtext)
+			tmp.ExecuteTemplate(response, "passwordreset.gohtml", errtext)
 			return
 
 		} 
@@ -61,14 +61,14 @@ func PasswordReset(response http.ResponseWriter, request *http.Request) {
 		if err != nil {
 			errtext := "Old Password not correct, Try again."
 			tmp, err := template.ParseFiles(
-				"view/passwordreset.html",
+				"view/passwordreset.gohtml",
 			)
 			if err != nil {
 				log.Print(err)
 				http.Error(response, "internal server error", http.StatusInternalServerError)
 				return
 			}
-			tmp.ExecuteTemplate(response, "passwordreset.html", errtext)
+			tmp.ExecuteTemplate(response, "passwordreset.gohtml", errtext)
 			return
 
 		} else {
@@ -78,9 +78,9 @@ func PasswordReset(response http.ResponseWriter, request *http.Request) {
 			if result.MatchedCount == 0 {
 				errtext := "Error, Please Try again."
 				tmp, _ := template.ParseFiles(
-					"view/passwordreset.html",
+					"view/passwordreset.gohtml",
 				)
-				tmp.ExecuteTemplate(response, "passwordreset.html", errtext)
+				tmp.ExecuteTemplate(response, "passwordreset.gohtml", errtext)
 				return
 
 			} else {

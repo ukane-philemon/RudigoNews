@@ -44,11 +44,11 @@ func AllUsers(response http.ResponseWriter, request *http.Request) {
 		if user.LoginState {
 
 			tmp, err := template.ParseFiles(
-				"admin/template/template.html",
-				"admin/template/sidebar.html",
-				"admin/template/header.html",
-				"admin/template/footer.html",
-				"admin/viewallusers.html",
+				"admin/template/template.gohtml",
+				"admin/template/sidebar.gohtml",
+				"admin/template/header.gohtml",
+				"admin/template/footer.gohtml",
+				"admin/viewallusers.gohtml",
 			)
 
 			if err != nil {

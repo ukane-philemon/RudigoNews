@@ -51,15 +51,15 @@ func Dashboard(response http.ResponseWriter, request *http.Request) {
 			fmt.Fprint(response, `<p>You are not Logged in, Click <a href="/login">Here</a> to Log in </p>`)
 			return
 		}
-		//check if user is loggedin before displaying html template.
+		//check if user is loggedin before displaying gohtml template.
 		if user.LoginState {
 
 			tmp, err := template.New(" ").Funcs(funcMap).ParseFiles(
-				"admin/template/template.html",
-				"admin/template/sidebar.html",
-				"admin/template/header.html",
-				"admin/template/footer.html",
-				"admin/dashboard.html",
+				"admin/template/template.gohtml",
+				"admin/template/sidebar.gohtml",
+				"admin/template/header.gohtml",
+				"admin/template/footer.gohtml",
+				"admin/dashboard.gohtml",
 			)
 
 			if err != nil {

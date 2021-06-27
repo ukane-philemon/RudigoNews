@@ -49,11 +49,11 @@ func Allpages(response http.ResponseWriter, request *http.Request) {
 			}
 
 			tmp, err := template.New(" ").Funcs(funcMap).ParseFiles(
-				"admin/template/template.html",
-				"admin/template/sidebar.html",
-				"admin/template/header.html",
-				"admin/template/footer.html",
-				"admin/viewallpages.html",
+				"admin/template/template.gohtml",
+				"admin/template/sidebar.gohtml",
+				"admin/template/header.gohtml",
+				"admin/template/footer.gohtml",
+				"admin/viewallpages.gohtml",
 			)
 
 			if err != nil {

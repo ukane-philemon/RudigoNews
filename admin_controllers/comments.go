@@ -36,11 +36,11 @@ func Comments(response http.ResponseWriter, request *http.Request) {
 			}
 
 			tmp, err := template.ParseFiles(
-				"admin/template/template.html",
-				"admin/template/sidebar.html",
-				"admin/template/header.html",
-				"admin/template/footer.html",
-				"admin/comments.html",
+				"admin/template/template.gohtml",
+				"admin/template/sidebar.gohtml",
+				"admin/template/header.gohtml",
+				"admin/template/footer.gohtml",
+				"admin/comments.gohtml",
 			)
 			if err != nil {
 				log.Print(err)

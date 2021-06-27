@@ -43,9 +43,9 @@ func ContactUs(response http.ResponseWriter, request *http.Request) {
 		}
 
 		tmp, err := template.New(" ").Funcs(funcMap).ParseFiles(
-			"view/template/footer.html",
-			"view/template/header.html",
-			"view/contact.html",
+			"view/template/footer.gohtml",
+			"view/template/header.gohtml",
+			"view/contact.gohtml",
 		)
 
 		if err != nil {
