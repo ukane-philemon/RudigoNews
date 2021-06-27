@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	apiKey = "219d92820495a61675e232dd05b995e3-us19"
+	apiKey = "your api key from mailchip"
 )
 
 //subscribe handles subscribtion to mailchip.
@@ -20,7 +20,7 @@ func Subscribe(response http.ResponseWriter, request *http.Request) {
 		client := gochimp3.New(apiKey)
 
 		// Audience ID
-		listID := "b74452e89d"
+		listID := "your list id from mailchip"
 
 		// Fetch list
 		list, err := client.GetList(listID, nil)
