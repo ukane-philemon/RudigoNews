@@ -1,21 +1,79 @@
+{{define "layout"}}
 <!DOCTYPE html>
-<html>
+<html lang="en_US">
+
 <head>
-<title>Page not found!</title>
-<style type="text/css">
-body { 
-  font-family: Helvetica, Arial;
-  background-color: #cceeff;
-  color: #333;
-  text-align: center;
-}
-</style>
-<link rel="stylesheet" type="text/css" media="screen" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"></link>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
+    <title>Not Found - RudigoNews</title>
+   
+    <meta http-equiv="Content-Type" content="text/html">
+    <meta name="author" content="RudigoNews">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="google-site-verification" content="" />
+  
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+    <link href="/static/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/contact.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/fontawesome-all.css" rel="stylesheet">
+    <link
+        href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+        rel="stylesheet">
+    <link rel="icon" href="/static/images/rudigonewsicon.ico/" type="image/x-icon">
+    
+
+
+
+    <!-- <link rel='dns-prefetch' href='//www.google-analytics.com' />
+<link rel='dns-prefetch' href='//www.googletagmanager.com' /> -->
+    <link rel='dns-prefetch'
+        href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800" />
+
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+
 </head>
 
 <body>
-<h1><i class="ion-android-warning"></i> 404, Page not found!</h1>
-<div>Look, we feel terrible about this, but at least we're offering a non-basis 404 page</div>
-</body>
 
-</html>
+    <!--Header-->
+
+  {{template "header" .}}
+    <!--//header-->
+    <section class="main-content-w3layouts-agileits">
+        <div class="container">
+            <div class="row inner-sec">
+                <!--left-->
+               <div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+
+                   
+                  <h1><i class="ion-android-warning"></i> 404, We can find what you are looking for now :(</h1>
+<div>We feel terrible about this, but at least we're offering a non-basis 404 page</div>
+
+                  
+                   </div>
+                <!--//left-->
+                <!--right-->
+               {{template "sidebar" .}}
+                <!--//right-->
+            
+        </div>
+        </div>
+    </section>
+    <!--//main-->
+
+    <!--footer-->
+    {{template "footer" .}}
+
+    {{end}}

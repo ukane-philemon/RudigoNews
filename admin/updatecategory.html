@@ -1,0 +1,93 @@
+{{define "content"}}
+<div class="py-2 mb-4 col-md-10" >
+                <div class="">
+                    <h3><span>Edit Category</span></h3>
+                </div>
+                <div class="card-body offset-md-2">
+                        <form action="/admin/update" method="post">
+                        <input type="hidden" name="datepublished"
+                            value="{{.Category.DatePublished.Format "Jan 02, 2006 at 3:04PM"}}">
+                            <input type="hidden" name="categoryId" value="{{.Category.ID.Hex}}">
+                            <input type="hidden" name="updatetype" value="categoryupdate">
+                           <div class="form-group">
+                            <label for="InputName" class="input__label">Name</label>
+                            <input type="text" class="form-control input-style" id="InputName" aria-describedby="Name" name="name" placeholder="Enter category name" value="{{.Category.Name}}" required>
+                            <small id="Name" class="form-text text-muted">The name is how it appears on your site.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="InputSlug" class="input__label">Slug</label>
+                            <input type="text" class="form-control input-style" id="InputSlug" aria-describedby="Slug" name="slug" value="{{.Category.Slug}}" required>
+                             <small id="Slug" class="form-text text-muted">The “slug” is the URL-friendly version of the name. It is usually all lowercase and contains only letters, numbers, and hyphens.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="InputAuthor" class="input__label">Author</label>
+                            <input type="text" class="form-control input-style" id="InputAuthor"
+                                placeholder="{{.Profile.First}}" required name="author" value="{{.Category.Author}}">
+                        </div>
+                        <div class="form-group">
+                    <label class="input__label" for="editor">Description</label>
+                    <textarea class="form-control input-style" id="editor" name="categorydescription"
+                        aria-describedby="Description" required>{{.Category.CategoryDescription}}</textarea>
+                    <small id="Description" class="form-text text-muted">The description is not prominent by default; however it contributes to google SERP.</small>
+                  </div>
+                    
+                    <button type="button" class="btn btn-primary btn-style mt-4" data-toggle="modal" data-target="#exampleModalCenter">
+                    Submit
+                  </button>
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">Update Category</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Are you ready to update this category?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Not Yet</button>
+                          <button type="submit" class="btn btn-success">Yes Save Changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+               
+                    </form>
+                     <form method="POST" action="/admin/delete">
+                        <input type="hidden" name="postId" value="{{.Category.ID.Hex}}">
+                        <input type="hidden" name="action" value="categorydelete">
+                        <button type="button" class="btn btn-primary btn-style mt-4" data-toggle="modal" data-target="#exampleModalCenter">
+                    Delete
+                  </button>
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">Delete Category</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Do you really want to delete this category?</p>
+                          <br>
+                          <small><strong>Note:</strong> All posts with this category will be reset to default category(uncategorized)</small>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                          <button type="submit" class="btn btn-success">Yes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+               
+                    </form>
+                    </div>
+ </div>
+ </div>
+
+{{end}}

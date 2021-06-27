@@ -1,9 +1,4 @@
 {{define "content" }}
-<!-- main content start -->
-<div class="main-content">
-
-    <!-- content -->
-    <div class="container-fluid content-top-gap">
         <!-- card heading -->
         <div class="card card_border py-2 mb-4">
             <div class="cards__heading">
@@ -13,43 +8,37 @@
                 <form action="/admin/createpage" method="post" enctype="application/x-www-form-urlencoded">
 
                     <div class="form-group">
-                        <label for="exampleInputEmail1" class="input__label">Title</label>
+                        <label for="exampleInputEmail1" class="input__label">Title | Page Name</label>
                         <input type="text" class="form-control input-style" name="title" id="PostTitle"
-                            aria-describedby="title" placeholder="Enter Page Title">
+                            aria-describedby="title" placeholder="Enter Page Title" required>
                     </div>
                     <div class="form-group">
                         <textarea name="content" id="editor" value=""
-                            placeholder="What are you waiting for? Start writing!">
-
+                            placeholder="What are you waiting for? Start writing!" required>
+                            What are you waiting for? Start writing!
                               </textarea>
+                              <script>
+                        CKEDITOR.replace( 'content' );
+                </script>
                     </div>
-                   
-                      <div class="form-group">
-
-                        <label for="inputState" class="input__label">Category</label>
-                        <select id="inputState" name="category" class="form-control input-style">
-                            <option selected="">Choose category</option>
-                            <option>About</option>
-                            <option>Privacy</option>
-                            <option>Disclaimer</option>
-                       </select>
-
-                    </div>
-
-
-                    <div class="form-row">
+                   <div class="form-group">
+                  <label for="author1" class="input__label">Author</label>
+                  <input type="text" class="form-control input-style" name="author" id="author1"
+                    aria-describedby="author1" placeholder="" Value="{{.Profile.First}}" required>
+                </div>
+               <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="tagsinput" class="input__label">Tags</label>
-                            <input type="text" class="form-control input-style" name="tags" id="tagsinput">
+                            <input type="text" class="form-control input-style" name="tags" id="tagsinput" required>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputSlug" class="input__label">Slug for Permarlink</label>
-                            <input type="text" class="form-control input-style" name="slug" id="inputSlug">
+                            <input type="text" class="form-control input-style" name="slug" id="inputSlug" required>
                         </div>
                         <div class="form-group col-md-4">
                             <label class="input__label" for="textArea">Page Description</label>
-                            <textarea class="form-control input-style" id="textArea" name="postdescription"
-                                rows="4"></textarea>
+                            <textarea class="form-control input-style" id="textArea" name="pagedescription"
+                                rows="4" required></textarea>
 
 
                         </div>
@@ -57,15 +46,9 @@
                     </div>
 
 
-                    <button type="submit" class="btn btn-primary btn-style mt-4">Publish Page</button>
+                    <button type="submit" class="btn btn-primary btn-style mt-4">Create Page</button>
                 </form>
             </div>
         </div>
-    </div>
-    </form>
-
-
-
-</div>
-<!-- //main content end -->
+  
 {{end}}

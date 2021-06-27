@@ -1,0 +1,80 @@
+{{define "sidebar"}}
+<div class="sidebar-menu sticky-sidebar-menu">
+
+      <!-- logo start -->
+      <div class="logo">
+        <h1><a href="/">RUdigo:)News</a></h1>
+      </div>
+
+      <!-- if logo is image enable this -->
+      <!-- image logo -->
+      <!-- <div class="logo">
+      <a href="index.html">
+        <img src="image-path" alt="Your logo" title="Your logo" class="img-fluid" style="height:35px;" />
+      </a>
+    </div> -->
+      <!-- //image logo -->
+
+      <!-- <div class="logo-icon text-center">
+      <a href="index.html" title="logo"><img src="/admin-assets/images/logo.png" alt="logo-icon"> </a>
+    </div> -->
+      <!-- //logo end -->
+
+      <div class="sidebar-menu-inner">
+
+        <!-- sidebar nav start -->
+        <ul class="nav nav-pills nav-stacked custom-nav">
+          <li><a href="/admin/dashboard"><i class="fa fa-tachometer"></i><span> Dashboard</span></a>
+          </li>
+          <li class="menu-list">
+            <a href="#"><i class="fa fa-cogs"></i>
+              <span>Posts</span></a>
+            <ul class="sub-menu-list">
+              <li><a href="/admin/all-post">All Posts</a> </li>
+              <li><a href="/admin/new-post">New Post</a> </li>
+              <li><a href="/admin/categories">Categories</a></li>
+
+            </ul>
+          </li>
+           <li class="menu-list">
+             <a href="#"><i class="fa fa-file" aria-hidden="true"></i>
+               <span>Page</span></a>
+             <ul class="sub-menu-list">
+               <li>
+                 <a href="/admin/all-pages"></i>All Pages</a>
+                 </li>
+               <li>
+                 <a href="/admin/createpage"></i>New Page</a>
+                 </li>
+               
+             </ul>
+           </li>
+          <li><a href="/admin/comments"><i class="fa fa-comment-o"></i> <span>Comments</span></a></li>
+          <li class="menu-list">
+             <a href="#"><i class="fa fa-users" aria-hidden="true"></i> <span>User</span></a>
+             <ul class="sub-menu-list">
+                <li>
+                  <a href="/admin/profile"></i>Profile</a>
+                </li>
+              <li>
+                <a href="/admin/all-users"></i>All Users</a>
+              </li>
+             </ul>
+          </li>
+          <li><a href="/logout"><i class="fa fa-power-off"></i> <span>Log out</span></a></li>
+          <li><a href="/password-reset"><i class="fa fa-cogs"></i> <span>Reset Password</span></a></li>
+          <li><a href="/"><i class="fa fa-eye"></i> <span>View Site</span></a></li>
+          <li>
+            <!-- toggle button start -->
+            <a class="toggle-btn">
+              <i class="fa fa-angle-double-left menu-collapsed__left"><span>Collapse Sidebar</span></i>
+              <i class="fa fa-angle-double-right menu-collapsed__right"></i>
+            </a>
+            <!-- //toggle button end -->
+          </li>
+        </ul>
+        <!-- //sidebar nav end -->
+        
+      </div>
+    </div>
+{{end}}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Join | RudigoNews</title>
+
+	<link href="/static/css/bootstrap.css" rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" href="/static/css/single.css">
+	<link href="/static/css/style.css" rel='stylesheet' type='text/css' />
+	<link href="/static/css/fontawesome-all.css" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+	    rel="stylesheet">
+</head>
+<body>
+	
+	<section class="main-content-w3layouts-agileits">
+		<div class="container">
+			<div class="login" style="margin-top: 4em;">
+			<h3 class="tittle">Rudigo:)News</h3>
+				<h3 class="tittle">Join Us</h3>
+				<div class="row inner-sec">
+					<div class="login p-5 bg-light mx-auto mw-100">
+					<span style="color: red;">{{.}}</span>
+					<form action="/newuser" method="post">
+							<div class="form-group">
+							  <label for="InputUserName mb-2">Username</label>
+							  <input type="text" class="form-control" id="InputUserName" aria-describedby="Username" name="username" placeholder="Username" required>
+							  	</div>
+                            <div class="form-group">
+							  <label for="firstname mb-2">First Name</label>
+							  <input type="text" class="form-control" id="firstname" aria-describedby="firstname" name="firstname" placeholder="First Name" required>
+							  </div>
+                             <div class="form-group">
+							  <label for="lastname mb-2">Last Name</label>
+							  <input type="text" class="form-control" id="lastname" aria-describedby="lastname" name="lastname" placeholder="Last Name" required>
+							  	</div>
+                               <div class="form-group">
+							  <label for="email mb-2">Email</label>
+							  <input type="text" class="form-control" id="email" aria-describedby="email" name="email" placeholder="Email" required>
+							  	</div>
+							<div class="form-group">
+							  <label for="exampleInputPassword1 mb-2">Password</label>
+							  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" required>
+							</div>
+							<div class="form-check mb-2">
+							  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+							  <label class="form-check-label" for="exampleCheck1">Remember me</label>
+							</div>
+							<button type="submit" class="btn btn-primary submit mb-4">Join</button>
+							<p><a href="/password-reset"> Lost your Password?</a><a href="/login"> or Login</a></p>
+						  </form>
+						  <p><a href="/"> <-- Go to RudigoNews</a></p>
+						   
+		</div>
+		</div>
+		</div>
+	</div>
+	</section>
+</body>
+</html>

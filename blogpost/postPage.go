@@ -1,29 +1,97 @@
 package blogpost
 
 import (
+	"fmt"
 	"html/template"
+	"log"
 	"net/http"
-	)
+	"strings"
 
-type Page struct {
-	Title   string
-	Content string
-	Date    string
-	Id 		int
+	"github.com/gorilla/mux"
+
+	model "github.com/ukane-philemon/RudigoNews/models"
+	//"go.mongodb.org/mongo-driver/bson/primitive"
+)
+
+type pdetail struct {
+	Post       model.Post
+	Articles   []model.Post
+	Loggedin   bool
+	Categories []model.Category
+	Pages      []model.Page
 }
- 
-// use post struct in getting value from db, then pass it as option to template loader then utilize in frontend
-func PageHandler(response http.ResponseWriter, request *http.Request) {
-	tmp, err := template.ParseFiles(
-		"view/template/template.html",
-		"view/post.html",
-	)
-if err != nil {
-		fileName := "view/404.html"
-		http.ServeFile(response, request, fileName)
+
+//Postpagehandler takes care of the post to be display on request.
+func PostPageHandler(response http.ResponseWriter, request *http.Request) {
+
+	switch request.Method {
+	case "GET":
+
+		vars := mux.Vars(request)
+		postslug := string(vars["slug"])
+		post, perr := model.GetPost(postslug)
+		posts := model.GetPosts()
+		userName := GetUserName(request)
+		user, err := model.GetUser(userName)
+		categories := model.GetCategories()
+		Pages := model.Getpages()
+
+		if err != nil {
+			user = model.User{}
+		}
+
+		funcMap := template.FuncMap{
+			"ToLower": strings.ToLower,
+			"slice" : func (array []interface{}, start int, end int) []interface{} {
+			sliced := array[start:end]
+			return sliced
+			},
+		}
+
+		detail := pdetail{
+			Post:       post,
+			Articles:   posts,
+			Loggedin:   user.LoginState,
+			Categories: categories,
+			Pages:      Pages,
+		}
+
+		if perr != nil {
+
+			tmp, _ := template.New(" ").Funcs(funcMap).ParseFiles(
+				"view/404.html",
+				"view/template/footer.html",
+				"view/template/header.html",
+				"view/template/sidebar.html")
+			tmp.ExecuteTemplate(response, "layout", detail)
+			return
+
+		}
+		tmp, err := template.New(" ").Funcs(funcMap).ParseFiles(
+			"view/post.html",
+			"view/template/footer.html",
+			"view/template/header.html",
+			"view/template/sidebar.html",
+		)
+
+		if err != nil {
+			log.Print(err)
+			http.Error(response, "internal server error", http.StatusInternalServerError)
+			return
+		}
+
+		tmp.ExecuteTemplate(response, "layout", detail)
+		model.AddPostCount(post.Slug, post.Views+1)
+		return
+
+	case "POST":
+
+		fmt.Fprint(response, "Cannot send Post Resquest")
+		http.Redirect(response, request, "/", http.StatusBadRequest)
+
+	default:
+		fmt.Fprint(response, "Method not allowed")
+		http.Redirect(response, request, "/", http.StatusBadRequest)
+
 	}
-
-tmp.ExecuteTemplate(response, "layout", nil)
-
 }
-

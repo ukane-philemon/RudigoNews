@@ -1,0 +1,148 @@
+{{define "footer"}}
+<!--footer-->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 footer-grid-agileits-w3ls text-left">
+                <h3>About US</h3>
+                <p class="p-footer"> Rudigo News is the product of curiosity, willingness to learn, test of patience, constant research, love for code and above all, motivation from my mentor.
+                 This is a sample news platform built on golang. 
+                 I am yet to coin a name for the program but this blog is RUDIGO NEWS.
+                 
+                 </p>
+                <div class="read">
+                    <a href="/about" class="btn btn-primary read-m">Read More</a>
+                </div>
+            </div>
+            <div class="col-lg-4 footer-grid-agileits-w3ls text-left">
+
+                <div class="tech-btm">
+                    <h3>Latest Posts</h3>
+                    <div class="blog-grids row mb-3">
+                         {{if not .Articles}}
+                         <p>Nothing Here</p>
+                         {{else}}
+                         {{range $k, $post := .Articles}}
+                         {{if (le $k 3)}}
+                                              
+                        <div class="col-md-5 blog-grid-left" style="margin-bottom: 10px">
+                            <a href="/{{$post.Category | ToLower}}/{{$post.Slug}}">
+                                <img src="/upload/{{$post.FeaturedImage}}"
+                                    class="card-img-top img-fluid" alt="{{ printf "%.45s" $post.FeaturedImage}}">
+                            </a>
+                        </div>
+                        <div class="col-md-7 blog-grid-right" style="margin-bottom: 10px">
+
+                            <h4>
+                                <a href="/{{$post.Category | ToLower}}/{{$post.Slug}}">{{ printf "%.40s" $post.Title}}...</a>
+                            </h4>
+                            <div class="sub-meta">
+                                <span>
+                                    <i class="far fa-clock"></i>
+                                    {{$post.DatePublished.Format "Jan 02, 2006"}}</span>
+                            </div>
+                        </div>
+                       {{else if (ge $k 4)}}
+                        {{range $k, $post := (slice .Articles 0 3)}}
+                                                                      
+                        <div class="col-md-5 blog-grid-left" style="margin-bottom: 10px">
+                            <a href="/{{$post.Category | ToLower}}/{{$post.Slug}}">
+                                <img src="/upload/{{$post.FeaturedImage}}"
+                                    class="card-img-top img-fluid" alt="{{ printf "%.45s" $post.FeaturedImage}}">
+                            </a>
+                        </div>
+                        <div class="col-md-7 blog-grid-right" style="margin-bottom: 10px">
+
+                            <h4>
+                                <a href="/{{$post.Category | ToLower}}/{{$post.Slug}}">{{ printf "%.40s" $post.Title}}...</a>
+                            </h4>
+                            <div class="sub-meta">
+                                <span>
+                                    <i class="far fa-clock"></i>
+                                    {{$post.DatePublished.Format "Jan 02, 2006"}}</span>
+                            </div>
+                        </div>
+                        {{end}}
+                        {{end}}
+                        {{end}}
+                        {{end}}
+                            </div>
+                </div>
+            </div>
+            <!-- subscribe -->
+            <div class="col-lg-4 subscribe-main footer-grid-agileits-w3ls text-left">
+                <h2>Signup to our newsletter</h2>
+                <div class="subscribe-main text-left">
+                    <div class="subscribe-form">
+                        <form action="/subscribe" method="post" class="subscribe_form">
+                            <input class="form-control" type="email" name ="email" placeholder="Enter your email..." required="">
+                            <button type="submit" class="btn btn-primary submit">Submit</button>
+                        </form>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <p class="p-footer">We respect your privacy.No spam ever!</p>
+                </div>
+                <!-- //subscribe -->
+            </div>
+        </div>
+        <!-- footer -->
+        <div class="footer-cpy text-center">
+            <div class="footer-social">
+                <div class="copyrighttop">
+                    <ul>
+                        <li class="mx-3">
+                            <a class="facebook" href="https://www.facebook.com/ukane.philemon.1">
+                                <i class="fab fa-facebook-f"></i>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="facebook" href="https://twitter.com/UkaneP">
+                                <i class="fab fa-twitter"></i>
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                   </ul>
+
+                </div>
+            </div>
+            <div class="w3layouts-agile-copyrightbottom" style="text-align: center;">
+                <p class="p-footer">© 2021 RudigoNews. All Rights Reserved | Built with &#10084
+                    <a href="https://github.com/ukane-philemon">By ukane-philemon |</a>
+                    {{if not .Loggedin}}
+                     <a href="/login"><i class="fas fa-lock"></i> Admin</a>
+                    {{else}}
+                    <span>You are currently Logged in.</span>
+                      {{end}}
+                   
+                </p>
+            </div>
+        </div>
+
+        <!-- //footer -->
+
+    </div>
+</footer>
+<!---->
+
+<!-- js -->
+<script src="/static/js/jquery-2.2.3.min.js"></script>
+<!-- //js -->
+<!--/ start-smoth-scrolling -->
+<script src="/static/js/move-top.js"></script>
+<script src="/static/js/easing.js"></script>
+<script src="/static/js/custom.js"></script>
+
+<a href="#home" class="scroll" id="toTop" style="display: block;">
+    <span id="toTopHover" style="opacity: 1;"> </span>
+</a>
+
+<!-- //Custom-JavaScript-File-Links -->
+<script src="/static/js/bootstrap.js"></script>
+<script src="/static/js/tableofcontent.js"></script>
+
+
+</body>
+
+</html>
+{{end}}

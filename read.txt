@@ -1,11 +1,15 @@
-DBS : adminDB {
-    Collection: User
+	filter := bson.M{
+    "$search": bson.M{
+	"index": "default", "text": bson.M{ "query": searchterm, "path": bson.M {"wildcard": "*"}},
 },
-    pageDB {
-        Collection: pages
-    },
-    PostDB {
-        Collection: posts
-    }
+	"$project": bson.M{
+		"slug":            2,
+		"title":           10,
+		"featuredimage":   1,
+		"rawcontent":      5,
+		"postdescription": 3,
+	}}
+	
+REmember to use go embbed before deploy
 
-Blog perist data {pages, posts, user data} from local mongodb.
+

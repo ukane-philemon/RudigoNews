@@ -1,0 +1,123 @@
+{{define "sidebar"}}
+<aside class="col-lg-4 agileits-w3ls-right-blog-con text-left">
+                    <div class="right-blog-info text-left">
+                        <div class="tech-btm">
+                            <img src="/static/images/banner1.jpg" class="card-img-top img-fluid" alt="">
+                        </div>
+                        <div class="tech-btm">
+                            <h4>Sign up to our newsletter</h4>
+                            <p>Enter your email address to subscribe to this blog
+                                and receive notifications of new posts by email.</p>
+                            <form action="/subscribe" method="post">
+                                <input type="email" placeholder="Email" name="email" required>
+                                <input type="submit" value="Subscribe">
+                            </form>
+
+                        </div>
+                        <div class="tech-btm">
+							<h4>Categories</h4>
+							<ul class="list-group single">
+                            {{range $k, $category := .Categories}}
+								<li class="list-group-item d-flex justify-content-between align-items-center">
+								<a href="/{{$category.Slug}}">{{$category.Name}}</a>
+									
+								</li>
+							{{end}}
+							</ul>
+						</div>
+                        <div class="tech-btm">
+							<h4>Pages</h4>
+							<ul class="list-group single">
+                            {{range $k, $page := .Pages}}
+								<li class="list-group-item d-flex justify-content-between align-items-center">
+								<a href="/{{$page.Slug}}">{{$page.Title}}</a>
+									
+								</li>
+							{{end}}
+							</ul>
+						</div>
+                                
+                                                 
+                        <div class="tech-btm widget_social text-left">
+                            <h4>Stay Connected</h4>
+                            <ul>
+
+                                <li>
+                                    <a class="twitter" href="https://twitter.com/UkaneP" >
+                                        <i class="fab fa-twitter"></i>
+                                        <span class="count">317K</span> Twitter Followers</a>
+                                </li>
+                                <li>
+                                    <a class="facebook" href="https://www.facebook.com/ukane.philemon.1">
+                                        <i class="fab fa-facebook-f"></i>
+                                        <span class="count">218k</span> Twitter Followers</a>
+                                </li>
+                                <li>
+                                    <a class="dribble" href="#">
+                                        <i class="fab fa-dribbble"></i>
+
+                                        <span class="count">215k</span> Dribble Followers</a>
+                                </li>
+                                <li>
+                                    <a class="pin" href="#">
+                                        <i class="fab fa-pinterest"></i>
+                                        <span class="count">190k</span> Pinterest Followers</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="tech-btm">
+                            <h4>Recent Posts</h4>
+                            <div class="blog-grids row mb-3 text-left">
+                                {{if not .Articles}}
+                                <p>Nothing Here</p>
+                                {{end}}
+
+                                {{range $k, $post := .Articles}}
+                                    {{if (le $k 9)}}
+                                    <div class="col-md-5 blog-grid-left" style="margin-bottom: 10px">
+                                    <a href="/{{$post.Category | ToLower}}/{{$post.Slug}}">
+                                        <img style="height: auto" src="/upload/{{$post.FeaturedImage}}"
+                                            class="card-img-top img-fluid" alt="{{ printf "%.45s" $post.FeaturedImage}}">
+                                    </a>
+                                </div>
+                                <div class="col-md-7 blog-grid-right">
+
+                                    <h4>
+                                        <a href="/{{$post.Category | ToLower}}/{{$post.Slug}}">{{ printf "%.45s" $post.Title}}...</a>
+                                    </h4>
+                                    <div class="sub-meta">
+                                        <span>
+                                            <i class="far fa-clock"></i>
+                                            {{$post.DatePublished.Format "Jan 02, 2006"}}
+                                            </span>
+                                    </div>
+                                </div>
+                                {{else if (gt $k 9)}}
+                                {{range $k, $post := (slice .Articles 0 9)}}
+                                <div class="col-md-5 blog-grid-left" style="margin-bottom: 10px">
+                                    <a href="/{{$post.Category | ToLower}}/{{$post.Slug}}">
+                                        <img style="height: auto" src="/upload/{{$post.FeaturedImage}}"
+                                            class="card-img-top img-fluid" alt="{{ printf "%.45s" $post.FeaturedImage}}">
+                                    </a>
+                                </div>
+                                <div class="col-md-7 blog-grid-right">
+
+                                    <h4>
+                                        <a href="/{{$post.Category | ToLower}}/{{$post.Slug}}">{{ printf "%.45s" $post.Title}}...</a>
+                                    </h4>
+                                    <div class="sub-meta">
+                                        <span>
+                                            <i class="far fa-clock"></i>
+                                            {{$post.DatePublished.Format "Jan 02, 2006"}}
+                                            </span>
+                                    </div>
+                                </div>
+                               {{end}}
+                               {{end}}
+                                {{end}}
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                {{end}}

@@ -1,0 +1,86 @@
+{{define "header"}}
+<div class="header sticky-header">
+
+      <!-- notification menu start -->
+      <div class="menu-right">
+        <div class="navbar user-panel-top">
+          <div class="search-box">
+            <form action="/admin/searchresult" method="get">
+              <input class="search-input" placeholder="Search Posts..." type="search" name="search" id="search">
+              <button class="search-submit" value=""><span class="fa fa-search"></span></button>
+            </form>
+          </div>
+          <div class="user-dropdown-details d-flex">
+            {{/* <div class="profile_details_left">
+              <ul class="nofitications-dropdown">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+                      class="fa fa-comment-o"></i><span class="badge blue">4</span></a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <div class="notification_header">
+                        <h3>You have {n} new Comments</h3>
+                      </div>
+                    </li>
+                   <li><a href="#" class="grid">
+                        <div class="user_img"><img src="/admin-assets/images/avatar1.jpg" alt=""></div>
+                        <div class="notification_desc">
+                          <p>Lorem ipsum, dolor sit amet con</p>
+                          <span>Time</span>
+                        </div>
+                      </a></li>
+                    <li>
+                   <li><a href="#" class="grid">
+                       <div class="user_img"><img src="/admin-assets/images/avatar1.jpg" alt=""></div>
+                       <div class="notification_desc">
+                         <p>Lorem ipsum, dolor sit amet con</p>
+                         <span>Time</span>
+                       </div>
+                     </a></li>
+                   <li>
+                    <li><a href="#" class="grid">
+                        <div class="user_img"><img src="/admin-assets/images/avatar1.jpg" alt=""></div>
+                        <div class="notification_desc">
+                          <p>Lorem ipsum, dolor sit amet con</p>
+                          <span>Time</span>
+                        </div>
+                      </a></li>
+                    <li>
+                      <div class="notification_bottom">
+                        <a href="/admin/comments" class="bg-primary">See all messages</a>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div> */}}
+            <div class="profile_details">
+              <ul>
+                <li class="dropdown profile_details_drop">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dropdownMenu3" aria-haspopup="true"
+                    aria-expanded="false">
+                    <div class="profile_img">
+                      <img src="/upload/{{.Profile.Avatar}}" class="rounded-circle" alt="{{.Profile.Avatar}}" />
+                      <div class="user-active">
+                        <span></span>
+                      </div>
+                    </div>
+                  </a>
+                  <ul class="dropdown-menu drp-mnu" aria-labelledby="dropdownMenu3">
+                    <li class="user-info">
+                      <h5 class="user-name">{{.Profile.First}} {{.Profile.Last}}</h5>
+                      <span class="status ml-2">Available</span>
+                    </li>
+                    <li> <a href="/admin/profile"><i class="lnr lnr-user"></i>My Profile</a> </li>
+
+                    <li class="logout"> <a href="/logout"><i class="fa fa-power-off"></i> Logout</a> </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--notification menu end -->
+    </div>
+{{end}}

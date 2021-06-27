@@ -1,7 +1,7 @@
 {{define "content"}}
 <div class="card card_border mb-5">
           <div class="cards__heading">
-            <h3>Welcome Ukane Philemon</h3>
+            <h3>Welcome {{.Profile.First}} {{.Profile.Last}}</h3>
             <p>we've assembled some links to get you started</p>
           </div>
           
@@ -28,10 +28,10 @@
                     <h5 class="card-title">More Actions...</h5>
                     <p class="card-text">
                       <ul style="list-style-type: none;  margin: 0px; padding: 0px;">
-                        <li> <i class="fa fa-trash" aria-hidden="true"></i> <a href="/admin/delete">Delete Post</a></li>
-                          <li><i class="fa fa-thumbs-up" aria-hidden="true"></i> <a href="/admin/approve">Approve comments</a></li>
-                            <li><i class="fa fa-wrench"></i> <a href="/admin/update-post">Update post</a></li>
-                              <li><i class="fa fa-eye"></i> <a href="/amdmin/all-post">View all posts</a></li>
+                        <li> <i class="fa fa-trash" aria-hidden="true"></i> <a href="/admin/all-post">Delete Post</a></li>
+                          <li><i class="fa fa-thumbs-up" aria-hidden="true"></i> <a href="/admin/comments">Approve comments</a></li>
+                              <li><i class="fa fa-eye"></i> <a href="/admin/all-post">View all posts</a></li>
+                              <li>You can do more ! ;)</li>
                       </ul>
                     </p>
                   </div>
@@ -47,41 +47,90 @@
                 <div class="card">
                    <div class="card-body">
                     <h5 class="card-title">Activity</h5>
-                    <p class="card-text">
+                    <div class="card-text">
                       <div>
-                        <h6>Recently Published posts</h6>
+                        <hr>
+                         <h6>Recently Published posts</h6>
+                         <hr>
                         <ul style="list-style-type: none; margin: 0px; padding: 0px;">
+                        {{if not .Articles}}
+                        <li><span>Nothing here</span></li>
+                        {{else}}
                           {{range $k, $post := .Articles }}
-                          <li><span>{{$post.Date.Format "Jan 02, 2006 15:04"}}</span><a href=""> {{$post.Title}}</a></li>
+                          {{if (le $k 5)}}
+                          <li><span>{{$post.DatePublished.Format "Jan 02, 2006 3:04 PM"}}</span>:<a href="/{{$post.Category | ToLower }}/{{$post.Slug}}"> {{$post.Title}}</a></li>
+                           {{else if (gt $k 5)}}
+                           {{range $k, $post := (slice .Articles 0 5)}}
+                           <li><span>{{$post.DatePublished.Format "Jan 02, 2006 3:04 PM"}}</span>:<a href="/{{$post.Category | ToLower }}/{{$post.Slug}}"> {{$post.Title}}</a></li>
+                           {{end}}
+                           {{end}}
+                           {{end}}
                            {{end}}
                         </ul>
                       </div>
                       <div>
+                      <hr>
                         <h6>Recently Published comments</h6>
+                        <hr>
                         <ul style="list-style-type: none;  margin: 0px; padding: 0px;">
-                          <li><span>{date}</span> Comment From {name} on <a href="">Post name</a></li>
-                           <li><span>{date}</span> Comment From {name} on <a href="">Post name</a></li>
-                           <li><span>{date}</span> Comment From {name} on <a href="">Post name</a></li>
-                           <li><span>{date}</span> Comment From {name} on <a href="">Post name</a></li>
-                        </ul>
+                        {{if not .Comments}}
+                        <li><span>Nothing here</span></li>
+                        {{else}}
+                                             {{range $k, $comment := .Comments }}
+                        <li><span>{{$comment.DateReceived.Format "Jan 02, 2006 3:04 PM"}}</span>:{{$comment.Message}} From {{$comment.Name}}</li>
+                        {{end}}
+                        {{end}}
+                         </ul>
                       </div>
-                    </p>
+                    </div>
                   </div>
                 </div>
               </div>
               <div class="col mb-4">
                 <div class="card">
                    <div class="card-body">
-                    <h5 class="card-title">Events and Schedule</h5>
-                    <p class="card-text">
-                      <ul style="list-style-type: none;  margin: 0px; padding: 0px;">
-                        <li><a href="">Event 1</a></li>
-                          <li><a href="">Event 2</a></li>
-                            <li><a href="">Event 3</a></li>
-                              <li><a href="">Event 4</a></li>
-                               <li><a href="">Event 3</a></li>
-                    </ul>
-                    </p>
+                    <h5 class="card-title">Create Task</h5>
+                    <div class="card-text">
+                    <form action="/admin/task" method="post">
+                       <div class="form-group">
+                         <label for="InputTitle" class="input__label">Title</label>
+                         <input type="text" class="form-control input-style" id="InputTitle" aria-describedby="Title"
+                           name="title" placeholder="Enter Task name" required>   
+                       </div>
+                       <input type="hidden" name="author" value="{{.Profile.First}}">
+                       <div class="form-group">
+                         <label class="input__label" for="textArea">Content</label>
+                         <textarea class="form-control input-style" id="textArea" name="taskdescription"
+                           aria-describedby="Description" rows="5" col="40" required=""></textarea>
+                       
+                       </div>
+                       <button type="submit" class="btn btn-primary btn-style mt-4">Save</button>
+                    </form>
+                      </div>
+                    <div>
+                      <hr>
+                        <h5>Tasks and Events</h5>
+                        <hr>
+                        <ul style="list-style-type: none;  margin: 0px; padding: 0px;">
+                        {{if not .Tasks}}
+                        <li><span>Nothing here</span></li>
+                        {{else}}
+                        {{range $k, $task := .Tasks }}
+                        <li>{{$task.Title}} on <span>{{$task.DatePublished.Format "Jan 02, 2006 3:04 PM"}}</span> by {{$task.Author}}</li>
+                        <p>{{$task.Description}}</p>
+                        <div class="form-check">
+                          <form method="POST" action="/admin/delete">
+                            <input class="form-check-input" type="checkbox" name="checkbox"
+                              onchange="this.form.submit()">
+                              <small style="color: red;">Check to Delete, It is Irreversible</small>
+                            <input type="hidden" name="postId" value="{{$task.ID.Hex}}">
+                            <input type="hidden" name="action" value="taskdelete">
+                          </form>
+                        </div>
+                        {{end}}
+                        {{end}}
+                         </ul>
+                      </div>
                   </div>
                 </div>
               </div>
@@ -91,9 +140,9 @@
                     <h5 class="card-title">At a Glance</h5>
                     <p class="card-text">
                       <ul style="list-style-type: none;  margin: 0px; padding: 0px;">
-                        <li><i class="fa fa-pencil-square-o"></i> <a href="">{Num} Posts</a></li>
-                          <li><i class="fa fa-comment-o"></i> <a href="">{num} Comments</a></li>
-                            <li><i class="fa fa-file-o"></i> <a href="">{num} Pages</a></li>
+                         {{range $k, $counter := .Counters}}
+                         <li>{{$counter.Number}} {{$counter.Name}}</li>
+                         {{end}}
                               
                       </ul>
                     </p>
@@ -102,10 +151,9 @@
               </div>
               </div>
             </div>
-                 <div class="card-body">
+           <div class="card-body">
             <div class="row row-cols-1 row-cols-md-2">
-              
-             
+                           
               </div>
             </div>        
 

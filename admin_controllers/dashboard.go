@@ -1,45 +1,85 @@
 package admin_controllers
 
 import (
-	//"fmt"
 	"fmt"
 	"html/template"
+	"log"
 	"net/http"
+	"strings"
 
-	//	"github.com/ukane-philemon/RudigoNews/blogpost"
 	"github.com/ukane-philemon/RudigoNews/blogpost"
 	model "github.com/ukane-philemon/RudigoNews/models"
 )
 
+//Dashoard takes care of displaying data on the user dashboard.
 func Dashboard(response http.ResponseWriter, request *http.Request) {
 
 	switch request.Method {
 	case "GET":
-		user, err := model.GetUser(blogpost.Username)
-		posts := model.GetPost()
+		//get user from ssesion then find in db
+		userName := blogpost.GetUserName(request)
+		user, err := model.GetUser(userName)
+		posts := model.GetPosts()
+		comments := model.GetComments()
+		counters := model.GetCounters()
+		tasks := model.GetTasks()
+
+		funcMap := template.FuncMap{
+			"ToLower": strings.ToLower,
+			"slice" : func (array []interface{}, start int, end int) []interface{} {
+			sliced := array[start:end]
+			return sliced
+			},
+		}
 		type detail struct {
 			Profile  model.User
 			Articles []model.Post
+			Comments []model.Comment
+			Tasks    []model.Task
+			Counters []model.Counter
 		}
 
-		details := detail{
+		details := &detail{
 			Profile:  user,
 			Articles: posts,
+			Comments: comments,
+			Tasks:    tasks,
+			Counters: counters,
 		}
 
 		if err != nil {
-			fmt.Fprint(response, err)
+			fmt.Fprint(response, `<p>You are not Logged in, Click <a href="/login">Here</a> to Log in </p>`)
+			return
 		}
-		// if user.LoginState {
+		//check if user is loggedin before displaying html template.
+		if user.LoginState {
 
-		tmp, _ := template.ParseFiles(
-			"admin/template/template.html",
-			"admin/dashboard.html",
-		)
-		tmp.ExecuteTemplate(response, "layout", details)
-		// } else {
-		// 	http.Redirect(response, request, "/", http.StatusForbidden)
-		// }
+			tmp, err := template.New(" ").Funcs(funcMap).ParseFiles(
+				"admin/template/template.html",
+				"admin/template/sidebar.html",
+				"admin/template/header.html",
+				"admin/template/footer.html",
+				"admin/dashboard.html",
+			)
+
+			if err != nil {
+				log.Print(err)
+				http.Error(response, "internal server error", http.StatusInternalServerError)
+				return
+			}
+
+			tmp.ExecuteTemplate(response, "layout", details)
+			return
+
+		} else {
+
+			http.Redirect(response, request, "/login", http.StatusSeeOther)
+			return
+
+		}
+
+	default:
+		fmt.Fprint(response, "Not Allowed")
 	}
 
 }

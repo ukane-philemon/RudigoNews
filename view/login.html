@@ -22,6 +22,7 @@
 				<h3 class="tittle">Admin Login Portal</h3>
 				<div class="row inner-sec">
 					<div class="login p-5 bg-light mx-auto mw-100">
+					<span style="color: red;">{{.}}</span>
 					<form action="/login" method="post">
 							<div class="form-group">
 							  <label for="InputUserName mb-2">Username</label>
@@ -36,7 +37,7 @@
 							  <label class="form-check-label" for="exampleCheck1">Remember me</label>
 							</div>
 							<button type="submit" class="btn btn-primary submit mb-4">Login</button>
-							<p><a href="/password-reset"> Lost your Password?</a></p>
+							<p><a href="/password-reset"> Lost your Password?</a> Or <a href="/newuser">Create account</a></p>
 						  </form>
 						  <p><a href="/"> <-- Go to RudigoNews</a></p>
 						   

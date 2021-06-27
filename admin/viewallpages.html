@@ -1,0 +1,61 @@
+{{define "content"}}
+<div class="card card_border mb-5">
+          <div class="cards__heading">
+            <h3>All Pages</h3>
+          </div>
+          <div class="card-body">
+            <table class="table table-striped">
+  <thead>
+    <tr>
+      
+      <th scope="col">
+        <small>Check to remove</small><br>
+        <small style="color: red;">Delete is Irreversible</small>
+      </th>
+      <th scope="col-2">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Author</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{if not .Pages}}
+    <tr>
+      <td>No Page Here</td>
+      </tr>
+    {{else}}
+    {{range $k, $page := .Pages}}
+
+     	<tr>
+      <th scope="row">
+        <div class="form-check">
+          <form method="POST" action="/admin/delete">
+              <input 
+              class="form-check-input"
+              type="checkbox"
+              name="checkbox" 
+              onchange="this.form.submit()">
+              <input type="hidden" name="postId" value="{{$page.ID.Hex}}">
+              <input type="hidden" name="action" value="pagedelete">
+          </form>
+      </div>
+      </th>
+     <td><a href="/{{$page.Slug}}">{{$page.Title}}</a>
+     <br>
+       <small> |<a href="/admin/update?postslug={{$page.Slug}}&action=pageedit"> Edit</a></small>
+       <small> | <a href="/{{$page.Slug}}">View</a> </small>
+
+     </td>
+     <td>{{$page.PageDescription}}</td>
+      <td>{{$page.Author}}</td>
+      <td>Published {{$page.DatePublished.Format "Jan 02, 2006 at 3:04 PM"}}</td>
+    </tr>
+    {{end}}
+    {{end}}
+    
+  </tbody>
+</table>
+          </div>
+        </div>
+     
+{{end}}

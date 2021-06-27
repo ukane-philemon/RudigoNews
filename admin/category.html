@@ -1,0 +1,111 @@
+{{define "content"}}
+<div class="form-row">
+<div class="py-2 mb-4 col-md-4">
+                <div class="cards__heading">
+                    <h3><span>Add Category</span></h3>
+                </div>
+                <div class="card-body">
+                        <form action="/admin/categories" method="post">
+                           <div class="form-group">
+                            <label for="InputName" class="input__label">Name</label>
+                            <input type="text" class="form-control input-style" id="InputName" aria-describedby="Name" name="name" placeholder="Enter category name" required>
+                            <small id="Name" class="form-text text-muted">The name is how it appears on your site.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="InputSlug" class="input__label">Slug</label>
+                            <input type="text" class="form-control input-style" id="InputSlug" aria-describedby="Slug" name="slug" value size="40" required>
+                             <small id="Slug" class="form-text text-muted">The “slug” is the URL-friendly version of the name. It is usually all lowercase and contains only letters, numbers, and hyphens.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="InputAuthor" class="input__label">Author</label>
+                            <input type="text" class="form-control input-style" id="InputAuthor" placeholder="{{.Profile.First}}" required name="author" value="{{.Profile.First}}">
+                        </div>
+                        <div class="form-group">
+                    <label class="input__label" for="textArea">Description</label>
+                    <textarea class="form-control input-style" id="textArea" name="categorydescription"
+                        aria-describedby="Description" rows="5" col="40" required=""></textarea>
+                    <small id="Description" class="form-text text-muted">The description is not prominent by default; however it contributes to google SERP.</small>
+                  </div>
+                     <button type="button" class="btn btn-primary btn-style mt-4" data-toggle="modal" data-target="#exampleModalCenter">
+                    Submit
+                  </button>
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">New Category</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Are you ready to publish this category?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Not Yet</button>
+                          <button type="submit" class="btn btn-success">Yes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+               
+                    </form>
+                    </div>
+ </div>
+ <div class="card card_border mb-5 col-md-8">
+          <div class="card-body">
+         <table class="table table-striped" style="table-layout: fixed; width: 100%">
+             <thead>
+                 <tr>
+                     <th scope="col">
+                         <small>Check to remove</small><br>
+                         <small style="color: red;">Delete is Irreversible</small>
+                     </th>
+                     <th scope="col">Name</th>
+                     <th scope="col">Description</th>
+                     <th scope="col">Slug</th>
+                     <th scope="col">Author</th>
+                     <th scope="col">Date</th>
+                 </tr>
+             </thead>
+             <tbody>
+           {{if not .Categories}}
+           <td> 
+               <p>Nothing Here, Use the Add Category section to add one.</p>
+           </td>
+           
+           {{else}}
+                 {{range $k, $category := .Categories}}
+                 
+                 <tr>
+                     <td>
+                         <div class="form-check">
+                             <form method="POST" action="/admin/delete">
+                                 <input class="form-check-input" type="checkbox" name="checkbox"
+                                     onchange="this.form.submit()">
+                                 <input type="hidden" name="postId" value="{{$category.ID.Hex}}">
+                                 <input type="hidden" name="action" value="categorydelete">
+                             </form>
+                         </div>
+                     </td>
+                     <td><a href="/{{$category.Slug}}">{{$category.Name}}</a>
+                         <br>
+                         <small><a href="/admin/update?postslug={{$category.Slug}}&action=categoryedit"> Edit</a></small>
+                         <small> | <a href="/category/{{$category.Slug}}">View</a> </small>
+
+                     </td>
+                     <td style="word-wrap: break-word">{{$category.CategoryDescription}}</td>
+                     <td>{{$category.Slug}}</td>
+                     <td>{{$category.Author}}</td>
+                     <td>Published {{$category.DatePublished.Format "Jan 02, 2006 at 3:04 PM"}}</td>
+                 </tr>
+                 {{end}}
+                 {{end}}
+
+             </tbody>
+         </table>
+     </div>
+ </div>
+</div>
+ {{end}}

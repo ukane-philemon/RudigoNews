@@ -1,40 +1,40 @@
 {{define "content"}}
 <div class="card card_border mb-5">
           <div class="cards__heading">
-            <h3>All Posts</h3>
+            <h3>All Comments</h3>
           </div>
           <div class="card-body">
-            <table class="table table-striped">
+            <table class="table table-striped" style="table-layout: fixed; width: 100%">
   <thead>
     <tr>
-      <th scope="col">
-        
+      <th>
+       <small style="color: red;"> Check to Delete</small>
       </th>
-      <th scope="col-2">Comment</th>
-      <th scope="col">Author</th>
-      <th scope="col">Postname</th>
-        <th scope="col">Date</th>
+      <th scope="col">Name</th>
+      <th scope="col">Subject</th>
+      <th scope="col">Comment</th>
+      <th scope="col">Email</th>
+        <th scope="col">Date Received</th>
     </tr>
   </thead>
   <tbody>
-    {{range $k, $post := .Articles}}
+    {{range $k, $comment := .Comments}}
      	<tr>
-      <th scope="row">
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            value=""
-            id="flexCheckDefault"
-          />
-        </div>
-      </th>
-     <td>{{$post.Title}}<br>
-       <small>{{$post.Category}}</small>
-     </td>
-      <td>{{$post.Author}}</td>
-      <td>{10}</td>
-      <td>{{$post.Date.Format "Jan 02, 2006 15:04"}}</td>
+      <td>
+          <div class="form-check">
+                             <form method="POST" action="/admin/delete">
+                                 <input class="form-check-input" type="checkbox" name="checkbox"
+                                     onchange="this.form.submit()">
+                                 <input type="hidden" name="postId" value="{{$comment.ID.Hex}}">
+                                 <input type="hidden" name="action" value="commentdelete">
+                             </form>
+                         </div>
+      </td>
+     <td>{{$comment.Name}}</td>
+      <td>{{$comment.Subject}}</td>
+      <td>{{$comment.Message}}</td>
+      <td>{{$comment.Email}}</td>
+      <td>{{$comment.DateReceived.Format "Jan 02, 2006 3:04 PM"}}</td>
     </tr>
     {{end}}
     

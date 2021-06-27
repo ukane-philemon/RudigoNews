@@ -178,6 +178,11 @@ svg {
 table {
   border-collapse: collapse; }
 
+  table td {
+  word-wrap: break-word;
+}
+
+
 caption {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
@@ -7342,26 +7347,6 @@ a.text-dark:hover, a.text-dark:focus {
   100% {
     transform: rotate(359deg); } }
 
-.fa-rotate-90 {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
-  transform: rotate(90deg); }
-
-.fa-rotate-180 {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
-  transform: rotate(180deg); }
-
-.fa-rotate-270 {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
-  transform: rotate(270deg); }
-
-.fa-flip-horizontal {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
-  transform: scale(-1, 1); }
-
-.fa-flip-vertical {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
-  transform: scale(1, -1); }
-
 :root .fa-rotate-90,
 :root .fa-rotate-180,
 :root .fa-rotate-270,
@@ -9564,7 +9549,7 @@ License: https://linearicons.com/free/license
 
 .lnr {
   font-family: Linearicons-Free;
-  speak: none;
+  speak-as: none;
   font-style: normal;
   font-weight: 400;
   font-variant: normal;
@@ -11150,7 +11135,6 @@ ul.nofitications-dropdown li {
   text-align: center;
   color: var(--primary);
   border-radius: 50%;
-  vertical-align: middle;
   background-color: var(--light-bg-color);
   opacity: 0.5;
   transition: 0.3s ease; }
@@ -11200,6 +11184,7 @@ ul.nofitications-dropdown li {
   height: 30px;
   overflow: hidden;
   transition: width 0.3s;
+  backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   background: none; }
 
@@ -12780,6 +12765,7 @@ h3.number {
   transform: translateX(0px); }
 
 .popup .overlay-popup-hugeinc nav {
+  perspective: 300px;
   -moz-perspective: 300px; }
 
 .popup .overlay-popup-hugeinc nav ul {
@@ -13245,5 +13231,10 @@ img {
   .w3l-team-block h3.name-pos a {
     font-size: 25px;
     line-height: 30px; } }
+
+
+
+
+ 
 
 /*# sourceMappingURL=style-starter.css.map */

@@ -1,0 +1,79 @@
+{{define "content"}}
+<div class="card card_border mb-5">
+    <div class="cards__heading">
+        <h3>All Users</h3>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+
+                    <th scope="col">
+                        <small>Check to remove</small><br>
+                        <small style="color: red;">Delete is Irreversible</small>
+                    </th>
+                    <th scope="col-2">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Admin State</th>
+                    <th scope="col">Login State</th>
+                    <th scope="col">Date Joined</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{if not .Users}}
+                <tr>
+                    <td>No users yet</td>
+                </tr>
+                {{else}}
+                
+                {{range $k, $user := .Users}}
+                
+                 <tr>
+                    <th scope="row">
+                        {{if $user.LoginState}}
+                        <span>Loggedin </span>
+                        
+                        {{else}}
+                        <div class="form-check">
+                            <form method="POST" action="/admin/delete">
+                                <input class="form-check-input" type="checkbox" name="checkbox"
+                                    onchange="this.form.submit()">
+                                <input type="hidden" name="postId" value="{{$user.ID.Hex}}">
+                                <input type="hidden" name="action" value="userdelete">
+
+                            </form>
+                        </div>
+                        {{end}}
+                       
+                    </th>
+                    <td>{{$user.First}} {{$user.Last}}
+                        <br>
+                        {{if $user.Adminrights}}
+                                <form method="POST" action="/admin/all-users">
+                               <input type="hidden" name="userId" value="{{$user.ID.Hex}}">
+                               <input type="hidden" name="action" value="remove">
+                               <input type="submit" value="Remove Admin">
+                            </form>
+                        {{else}} 
+                            <form method="POST" action="/admin/all-users">
+                                <input type="hidden" name="userId" value="{{$user.ID.Hex}}">
+                                 <input type="hidden" name="action" value="makeadmin">
+                                <input type="submit" value="Make Admin">
+                            </form>
+                        
+                        {{end}}
+                    </td>
+                    <td>{{$user.Email}}</td>
+                    <td>{{$user.Adminrights}}</td>
+                    <td>{{$user.LoginState}}</td>
+                    <td>{{$user.DateJoined.Format "Jan 02, 2006 at 15:04 PM"}}</td>
+                </tr>
+                {{end}}
+                {{end}}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{{end}}

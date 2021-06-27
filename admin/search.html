@@ -1,5 +1,48 @@
 {{define "content"}}
-<Div>
-    search result
-</Div>
+<div class="card card_border mb-5">
+    <div class="cards__heading">
+        <h3>Search Results</h3>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        <small>Check to remove</small><br>
+                        <small style="color: red;">Delete is Irreversible</small>
+                    </th>
+                    <th scope="col-2">Title</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{range $k, $post := .Articles}}
+                <tr>
+                    <th scope="row">
+                        <div class="form-check">
+                            <form method="POST" action="/admin/delete">
+                                <input class="form-check-input" type="checkbox" value="{{$post.ID}}" name="checkbox"
+                                    onchange="this.form.submit()">
+                                <input type="hidden" name="postslug" value="{{$post.ID.Hex}}">
+                                <input type="hidden" name="action" value="postdelete">
+                            </form>
+                        </div>
+                    </th>
+                    <td><a href="/{{$post.Category}}/{{$post.Slug}}">{{$post.Title}}</a>
+     <br>
+       <small>{{$post.Category}}</small>
+       <small> |<a href="/admin/update?postslug={{$post.Slug}}&action=postedit"> Edit</a></small> 
+       <small> | <a href="/{{$post.Category | ToLower}}/{{$post.Slug}}">View</a> </small>
+
+     </td>
+                    <td>{{$post.Author}}</td>
+                    <td>{{$post.DateModified.Format "Jan 02, 2006 at 03:04 PM"}}</td>
+                </tr>
+                {{end}}
+
+            </tbody>
+        </table>
+    </div>
+</div>
 {{end}}

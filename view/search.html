@@ -1,0 +1,35 @@
+{{define "content"}}
+    <div class="row mb-4">
+        {{range $k, $post := .Results}}
+        <div class="col-md-6 card">
+            <a href="/{{$post.Category | ToLower}}/{{$post.Slug}}">
+                <img src="/upload/{{$post.FeaturedImage}}" class="card-img-top img-fluid" alt="{{ printf "%.45s" $post.FeaturedImage}}">
+            </a>
+            <div class="card-body">
+                <ul class="blog-icons my-4">
+
+                    <li>
+                        <a href="/category/{{$post.Category | ToLower}}">{{$post.Category}}</a>
+                    </li>
+
+                </ul>
+                <h5 class="card-title">
+                    <a href="/{{$post.Category | ToLower}}/{{$post.Slug}}">{{$post.Title}}</a>
+                </h5>
+                <a href="/{{$post.Category | ToLower}}/{{$post.Slug}}" class="btn btn-primary read-m">Read
+                    Now</a>
+            </div>
+        </div>
+        {{else}}
+        
+            <div class="col-md-8">
+                     <h2>NOT FOUND</h2>
+                     <br>
+                     <p>Nothing was Found For your Search Term</p>
+
+                     </div>
+            
+                   
+         {{end}}
+         </div>
+    {{end}}

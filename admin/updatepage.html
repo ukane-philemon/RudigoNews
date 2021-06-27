@@ -1,0 +1,80 @@
+{{define "content" }}
+     <!-- card heading -->
+     <div class="card card_border py-2 mb-4">
+       <div class="cards__heading">
+         <h3>Update Page</h3>
+       </div>
+       <div class="card-body">
+         <form action="/admin/update" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="pageId" value="{{.Page.ID.Hex}}">
+          <input type="hidden" name="updatetype" value="pageupdate">
+            <input type="hidden" name="datepublished" value= {{.Page.DatePublished.Format "Jan 02, 2006 3:04 PM"}}>
+           <div class="form-group">
+             <label for="exampleInputEmail1" class="input__label">Title</label>
+             <input type="text" class="form-control input-style" name="title" id="PostTitle" value="{{.Page.Title}}" aria-describedby="title"
+               placeholder="Enter Page Title" required>
+           </div>
+           <div class="form-group">
+             <textarea name="content" id="editor">
+                {{.Page.RawContent}}
+                </textarea>
+           </div>
+           <div class="form-group">
+             <label for="author1" class="input__label">Author</label>
+             <input type="text" class="form-control input-style" value="{{.Page.Author}}" name="author" id="author1" aria-describedby="author1"
+               placeholder="Author's Name" required>
+           </div>
+           <div class="form-row">
+             <div class="form-group col-md-4">
+               <label for="tagsinput" class="input__label">Tags</label>
+               <input type="text" class="form-control input-style" value="{{.Page.Tags}}"name="tags" id="tagsinput" required>
+             </div>
+             <div class="form-group col-md-4">
+               <label for="inputSlug" class="input__label">Slug for Permarlink</label>
+               <input type="text" class="form-control input-style" value="{{.Page.Slug}}" name="slug" id="inputSlug" required>
+             </div>
+             <div class="form-group col-md-4">
+               <label class="input__label" for="textArea">Page Description</label>
+               <textarea class="form-control input-style" id="textArea" name="pagedescription"
+                 rows="4" required>
+                 {{- .Page.PageDescription  -}}
+                </textarea>
+              <script>
+                        CKEDITOR.replace( 'content' );
+                </script>
+
+             </div>
+
+           </div>
+
+
+    
+            <button type="button" class="btn btn-primary btn-style mt-4" data-toggle="modal" data-target="#exampleModalCenter">
+                    Update Page
+                  </button>
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">Update Page</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Are you ready to update this page?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Not Yet</button>
+                          <button type="submit" class="btn btn-success">Yes Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+               
+         </form>
+       </div>
+     </div>
+  
+  {{end}}
